@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-CHECKPOINT_PATH=checkpoints/finetune_mips_O0
+# CHECKPOINT_PATH=checkpoints/finetune_mips_O0
+
+CHECKPOINT_PATH=/home/raisul/stateformer/checkpoints/finetune_mips_O0
 mkdir -p $CHECKPOINT_PATH
 rm -f $CHECKPOINT_PATH/checkpoint_best.pt
-cp checkpoints/pretrain/checkpoint_best.pt $CHECKPOINT_PATH/
+cp /home/raisul/stateformer/checkpoints/pretrain/checkpoint_best.pt $CHECKPOINT_PATH/
 
 TOTAL_UPDATES=6000    # Total number of training steps
 WARMUP_UPDATES=100    # Warmup the learning rate over this many updates
@@ -16,7 +18,7 @@ ENCODER_EMB_DIM=768
 ENCODER_LAYERS=8
 ENCODER_ATTENTION_HEADS=12
 
-CUDA_VISIBLE_DEVICES=0 python train.py \
+CUDA_VISIBLE_DEVICES=0 python /home/raisul/stateformer/train.py \
   data-bin/finetune/mips-O0 \
   --num-classes $NUM_CLASSES \
   --task data_structure_mf --criterion data_structure_mf --arch roberta_mf_nau \
@@ -31,4 +33,4 @@ CUDA_VISIBLE_DEVICES=0 python train.py \
   --no-epoch-checkpoints --save-dir $CHECKPOINT_PATH/ \
   --memory-efficient-fp16 \
   --restore-file $CHECKPOINT_PATH/checkpoint_best.pt |
-  tee result/finetune_mips_O0
+  tee /home/raisul/stateformer/result/finetune_mips_O0

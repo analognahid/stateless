@@ -1,9 +1,12 @@
+import os,sys
+sys.path.insert(0,'/home/raisul/stateformer/')
 from command.params import fields
 from multiprocessing import Pool
 import subprocess
 from itertools import product
 
-import os
+
+
 
 
 def run(arch_opt, field):
