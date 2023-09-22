@@ -56,10 +56,10 @@ def get_data_type_info(f, var, is_arg, count):
     return f
 
 
-output_dir = getScriptArgs()[0]
+output_path = getScriptArgs()[0]
 
-filepath = str(getProgramFile())
-filename = filepath.split('/')[-1]
+# filepath = str(getProgramFile())
+# filename = filepath.split('/')[-1]
 
 d = {}
 
@@ -87,5 +87,5 @@ while function is not None:
     function = getFunctionAfter(function)
 
 # print(d)
-with open(os.path.join(output_dir, filename + '_stacks'), 'w') as f:
+with open(os.path.join(output_path ), 'w') as f:
     f.write(json.dumps(d))
