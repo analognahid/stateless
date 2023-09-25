@@ -1,17 +1,49 @@
+import sys
+sys.path.insert(0,'/home/raisul/stateformer/')
+
+
 import glob
 import json
 import os
 import random
 import re
-import sys
+
 import argparse
 
 from capstone import *
 from elftools.elf.elffile import ELFFile
 
+
+from elftools.elf.elffile import ELFFile
+from elftools.dwarf.descriptions import (
+    describe_DWARF_expr, set_global_machine_arch)
+from elftools.dwarf.locationlists import (
+    LocationEntry, LocationExpr, LocationParser)
+import posixpath
+import sys,os,pickle
+from elftools.elf.segments import Segment
+from elftools.dwarf.locationlists import LocationParser, LocationExpr
+
+from collections import defaultdict
+
+import collections
+import posixpath
+
+
+import ntpath
+from capstone import *
+from capstone.x86 import *
+import collections
+import magic ,hashlib
+import subprocess
+from subprocess import STDOUT, check_output
+
+
+
+
 from command import params
 # class params:
-#     fields = ['static', 'inst_emb', 'inst_pos_emb', 'arch_emb', 'byte1', 'byte2', 'byte3', 'byte4', 'arg_info']
+#     fields = ['static', 'inst_emb', 'inst_pos_emb', 'arch_emb', 'byte1', 'byte2', 'byte3', 'byte4', 'arg_info','op_pos_emb']
 
 def tokenize(s):
     s = s.replace(',', ' , ')
@@ -96,7 +128,10 @@ def get_type(type_str, agg):
     elif 'undefined' in type_str:
         return 'undefined'
 
-    print(type_str)
+    # #TODO fix this
+    # return type_str
+    # # print(type_str)
+    # # exit(0)
     return '?you shouldnt be seeing this?'
 
 
@@ -164,24 +199,37 @@ def byte2seq(value_list):
     return [value_list[i:i + 2] for i in range(len(value_list) - 2)]
 
 
-parser = argparse.ArgumentParser(description='Output ground truth')
-parser.add_argument('--output_dir', type=str, nargs=1,
-                    help='where ground truth is output')
-parser.add_argument('--input_dir', type=str, nargs=1,
-                    help='directory where input binaries are')
-parser.add_argument('--stack_dir', type=str, nargs=1,
-                    help='where the stack files are (same as argument for get_var_loc.py')
-parser.add_argument('--arch', type=str, nargs=1,
-                    help='architecture of binary')
+#TODO nahid fix
+args_arch = 'mips' #'x86'
 
-args = parser.parse_args()
+output_dir = '/home/raisul/stateformer/data-src/finetune/mips-O0/' # args.output_dir[0]
 
-output_dir = args.output_dir[0]
-input_dir = args.input_dir[0]
-stack_dir = args.stack_dir[0]
+stack_dir = '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format_mips/'
 
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
+
+
+SRC_N_BIN_PATH  = '/media/raisul/nahid_personal/dwarf4/state_binaries/'
+
+# output_dir_path = '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format/'
+
+
+def get_fname(fpath):
+    return file_path.split('/')[-1]
+
+filtered_files = []
+for path, subdirs, files in os.walk(SRC_N_BIN_PATH):
+    # if len(filtered_files)>5:
+    #     break
+    for name in files:
+
+
+        file_path = os.path.join(path, name)
+
+        filtered_files.append(file_path)
+
+        # if len(filtered_files)>5:
+        #     break
+print(filtered_files)
 
 train_file = {field: open(os.path.join(output_dir, f'train.{field}'), 'w') for field in params.fields}
 valid_file = {field: open(os.path.join(output_dir, f'valid.{field}'), 'w') for field in params.fields}
@@ -189,28 +237,42 @@ valid_file = {field: open(os.path.join(output_dir, f'valid.{field}'), 'w') for f
 train_label = open(os.path.join(output_dir, 'train.label'), 'w')
 valid_label = open(os.path.join(output_dir, 'valid.label'), 'w')
 
-file_list = glob.glob(os.path.join(input_dir, '*'), recursive=True)
+
 # filename = 'command/ghidra/ds_test_dwarf'
 
-for filename in file_list:
-    # load data structure information from ghidra
-    with open(os.path.join(stack_dir, f'{os.path.basename(filename)}_stacks'), 'r') as f:
-        loc_dict = json.loads(f.read())
+for file_path in filtered_files:
+    filename = get_fname(file_path)
 
-    with open(filename, 'rb') as f:
+    #custom names by nahid to keep track
+ 
+    stack_file_path = os.path.join(stack_dir , filename ) +'_stacks'
+
+    # load data structure information from ghidra
+    try:
+        with open(stack_file_path, 'r') as f:
+            loc_dict = json.loads(f.read())
+            print('stack_ found!')
+    except :
+        print('not found!!')
+        continue
+    
+    with open(file_path, 'rb') as f:
         elffile = ELFFile(f)
         dwarf = elffile.get_dwarf_info()
 
+        print("DBG :", dwarf)
         # disassemble the byte code with capstone
         code = elffile.get_section_by_name('.text')
         opcodes = code.data()
         addr = code['sh_addr']
-        md = Cs(CS_ARCH_X86, CS_MODE_64)
+        md = Cs(CS_ARCH_MIPS, CS_MODE_32)
 
         for CU in dwarf.iter_CUs():
+            print('here in cu')
             function_reps = get_function_reps(CU.get_top_DIE(), None)
 
             for func in function_reps:
+                print("DBG Here")
                 start_addr = func['start_addr']
                 end_addr = func['end_addr']
 
@@ -280,7 +342,7 @@ for filename in file_list:
 
                                 inst_pos.append(str(inst_pos_counter))
                                 op_pos.append(str(i))
-                                arch.append(args.arch[0])
+                                arch.append(args_arch)
 
                                 labels.append(label)
 
@@ -307,7 +369,7 @@ for filename in file_list:
                     train_file[params.fields[5]].write(' '.join(byte2) + '\n')
                     train_file[params.fields[6]].write(' '.join(byte3) + '\n')
                     train_file[params.fields[7]].write(' '.join(byte4) + '\n')
-                    train_file[params.fields[8]].write(' '.join(arg_info) + '\n')
+                #    train_file[params.fields[8]].write(' '.join(arg_info) + '\n')
 
                     train_label.write(' '.join(labels) + '\n')
 
@@ -321,7 +383,7 @@ for filename in file_list:
                     valid_file[params.fields[5]].write(' '.join(byte2) + '\n')
                     valid_file[params.fields[6]].write(' '.join(byte3) + '\n')
                     valid_file[params.fields[7]].write(' '.join(byte4) + '\n')
-                    valid_file[params.fields[8]].write(' '.join(arg_info) + '\n')
+                #    valid_file[params.fields[8]].write(' '.join(arg_info) + '\n')
 
                     valid_label.write(' '.join(labels) + '\n')
 

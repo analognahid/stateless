@@ -1,14 +1,17 @@
+import sys
+sys.path.insert(0,'/home/raisul/stateformer/')
+
+
 import glob
 import json
 import os
 import random
 import re
-import sys
+
 import argparse
 
 from capstone import *
 from elftools.elf.elffile import ELFFile
-
 
 
 from elftools.elf.elffile import ELFFile
@@ -38,9 +41,9 @@ from subprocess import STDOUT, check_output
 
 
 
-# from command import params
-class params:
-    fields = ['static', 'inst_emb', 'inst_pos_emb', 'arch_emb', 'byte1', 'byte2', 'byte3', 'byte4', 'arg_info']
+from command import params
+# class params:
+#     fields = ['static', 'inst_emb', 'inst_pos_emb', 'arch_emb', 'byte1', 'byte2', 'byte3', 'byte4', 'arg_info','op_pos_emb']
 
 def tokenize(s):
     s = s.replace(',', ' , ')
@@ -125,7 +128,10 @@ def get_type(type_str, agg):
     elif 'undefined' in type_str:
         return 'undefined'
 
-    print(type_str)
+    # #TODO fix this
+    # return type_str
+    # # print(type_str)
+    # # exit(0)
     return '?you shouldnt be seeing this?'
 
 
@@ -193,10 +199,10 @@ def byte2seq(value_list):
     return [value_list[i:i + 2] for i in range(len(value_list) - 2)]
 
 
-
+#TODO nahid fix
 args_arch = 'x86'
 
-output_dir = '/media/raisul/nahid_personal/dwarf4/ghidra_types/state_src_output_dir' # args.output_dir[0]
+output_dir = '/home/raisul/stateformer/data-src/finetune/x86-O0/' # args.output_dir[0]
 
 stack_dir = '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format'
 
@@ -221,8 +227,8 @@ def get_fname(fpath):
 
 filtered_files = []
 for path, subdirs, files in os.walk(SRC_N_BIN_PATH):
-    # if len(filtered_files)>5:
-    #     break
+    if len(filtered_files)>5:
+        break
     for name in files:
 
         if '_elf_file_gdwarf4_O0' not in name:
@@ -260,9 +266,12 @@ for file_path in filtered_files:
     stack_file_path = os.path.join(output_dir_path , unique_file_name ) +'_stacks'
 
     # load data structure information from ghidra
-    with open(stack_file_path, 'r') as f:
-        loc_dict = json.loads(f.read())
-
+    try:
+        with open(stack_file_path, 'r') as f:
+            loc_dict = json.loads(f.read())
+    except :
+        continue
+    
     with open(file_path, 'rb') as f:
         elffile = ELFFile(f)
         dwarf = elffile.get_dwarf_info()
@@ -373,7 +382,7 @@ for file_path in filtered_files:
                     train_file[params.fields[5]].write(' '.join(byte2) + '\n')
                     train_file[params.fields[6]].write(' '.join(byte3) + '\n')
                     train_file[params.fields[7]].write(' '.join(byte4) + '\n')
-                    train_file[params.fields[8]].write(' '.join(arg_info) + '\n')
+                #    train_file[params.fields[8]].write(' '.join(arg_info) + '\n')
 
                     train_label.write(' '.join(labels) + '\n')
 
@@ -387,7 +396,7 @@ for file_path in filtered_files:
                     valid_file[params.fields[5]].write(' '.join(byte2) + '\n')
                     valid_file[params.fields[6]].write(' '.join(byte3) + '\n')
                     valid_file[params.fields[7]].write(' '.join(byte4) + '\n')
-                    valid_file[params.fields[8]].write(' '.join(arg_info) + '\n')
+                #    valid_file[params.fields[8]].write(' '.join(arg_info) + '\n')
 
                     valid_label.write(' '.join(labels) + '\n')
 

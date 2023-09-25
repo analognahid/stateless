@@ -418,6 +418,8 @@ class Trainer(object):
     @metrics.aggregate("train")
     def train_step(self, samples, raise_oom=False):
         """Do forward, backward and parameter update."""
+        # print("DBG : sample", samples)
+        # exit(0)
         if self._dummy_batch == "DUMMY":
             self._dummy_batch = samples[0]
 
@@ -431,6 +433,8 @@ class Trainer(object):
         # forward and backward pass
         logging_outputs, sample_size, ooms = [], 0, 0
         for i, sample in enumerate(samples):
+            print('\n DBG # old target shape', sample['target'].shape)
+
             sample = self._prepare_sample(sample)
             if sample is None:
                 # when sample is None, run forward/backward on a dummy batch

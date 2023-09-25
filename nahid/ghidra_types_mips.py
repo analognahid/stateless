@@ -26,13 +26,11 @@ import subprocess
 from subprocess import STDOUT, check_output
 
 
-SRC_N_BIN_PATH        = '/media/raisul/nahid_personal/clones_100k_trimmed_dwarf4/'
+SRC_N_BIN_PATH        = '/media/raisul/nahid_personal/dwarf4/state_binaries' 
 
-output_dir_path =   '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format/'
+output_dir_path =   '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format_mips/'
 
 
-# /ssd/nahid/dwarf4/ghidra_types
-split_key = 'clones_100k_trimmed_dwarf4'
 
 def is_elf_file(file_path):
     try:
@@ -44,13 +42,8 @@ def is_elf_file(file_path):
 def analyse(  binary_path ):
 
 
-    # print(os.path.getsize(binary_path))
-    # if os.path.getsize(binary_path)>(25*1024):
-    #     return
-    unique_path = binary_path.split(split_key)[1][1:]
-    github_path = unique_path.split('/')[0]
 
-    unique_file_name=github_path + '_____'+(hashlib.md5(unique_path.encode())).hexdigest()
+    unique_file_name=binary_path.split('/')[-1]
 
 
 
@@ -99,13 +92,7 @@ for path, subdirs, files in os.walk(SRC_N_BIN_PATH):
     #     break
     for name in files:
 
-        if '_elf_file_gdwarf4_O0' not in name:
-            continue
-
         file_path = os.path.join(path, name)
-        
-        if is_elf_file(file_path)== False:
-            continue
         filtered_files.append(file_path)
 
 

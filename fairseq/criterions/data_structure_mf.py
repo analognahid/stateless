@@ -42,11 +42,22 @@ class DataStructureMFCriterion(FairseqCriterion):
                 and self.classification_head_name in model.classification_heads
         ), 'model must provide sentence classification head for --criterion=sentence_prediction'
 
+        sample['target'] = sample['target'][:, list(sample['net_input']['src_tokens'][self.fields[-3]])[1]]
         real_tokens = sample['target'].ne(self.task.label_dictionary.pad() - self.task.label_dictionary.nspecial)
 
-        assert torch.all(
-            real_tokens.eq(
-                sample['net_input']['src_tokens'][self.fields[-3]].ne(self.padding_idx_dict[self.fields[-3]])))
+        print("\n\n\n DBG  : ",sample['net_input']['src_tokens'][self.fields[-3]].shape  )
+        print(' sample mm : ',sample.keys())
+        print(self.padding_idx_dict[self.fields[-3]])
+        print(' DBG real_tokens: ',real_tokens.shape)
+        print("DBG target: ", list(sample['target'].size())[1] )
+
+        # real_tokens = real_tokens[:, list(sample['net_input']['src_tokens'][self.fields[-3]])[1]]
+        print(' DBG real_tokens new!: ',real_tokens.shape)
+        # assert torch.all(
+        #     real_tokens.eq(
+        #         sample['net_input']['src_tokens'][self.fields[-3]].ne(self.padding_idx_dict[self.fields[-3]])
+        #         )
+        #     )
 
         sample_size = real_tokens.int().sum().float()
 
@@ -55,6 +66,7 @@ class DataStructureMFCriterion(FairseqCriterion):
             features_only=True,
             classification_head_name=self.classification_head_name,
         )
+        print(" DBG # " , logits.shape , real_tokens.shape)
         targets = model.get_targets(sample, [logits])[real_tokens].view(-1)
 
         lprobs = F.log_softmax(logits[real_tokens, :], dim=-1, dtype=torch.float32)

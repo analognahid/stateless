@@ -130,6 +130,7 @@ class DataStructureMF(LegacyFairseqTask):
                 self.args.dataset_impl,
                 combine=combine,
             )
+            print('DBG : ',field ,self.source_dictionary[field], split_path,self.args.dataset_impl )
             if src_dataset is None:
                 raise FileNotFoundError('Dataset not found: {} ({})'.format(split, split_path))
 
