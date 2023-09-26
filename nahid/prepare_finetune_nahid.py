@@ -83,6 +83,8 @@ def get_function_reps(die, mapping):
 
 
 def get_type(type_str, agg):
+    
+    
     if '*' in type_str:
         return get_type(type_str.replace('*', ''), agg)+'*'
     elif '[' in type_str and ']' in type_str:
@@ -93,8 +95,10 @@ def get_type(type_str, agg):
         return 'struct'
     elif agg['is_union']:
         return 'union'
-    elif 'void' in type_str:
-        return 'void'
+    
+    #TODO not in dict
+    # elif 'void' in type_str:
+    #     return 'void'
 
     elif 'float' in type_str:
         return 'float'
@@ -106,14 +110,14 @@ def get_type(type_str, agg):
     elif 'char' in type_str:
         if 'u' in type_str:
             return 'unsigned_char'
-        return 'signed char'
+        return 'signed_char'
     elif 'short' in type_str:
         if 'u' in type_str:
             return 'unsigned_short'
         return 'signed_short'
     elif 'int' in type_str:
         if 'u' in type_str:
-            return 'unsigned int'
+            return 'unsigned_int'
         return 'signed_int'
     elif 'longlong' in type_str:
         if 'u' in type_str:
@@ -124,14 +128,13 @@ def get_type(type_str, agg):
             return 'unsigned_long'
         return 'signed_long'
 
-    elif 'undefined' in type_str:
-        return 'undefined'
 
-    # #TODO fix this
-    # return type_str
-    # # print(type_str)
-    # # exit(0)
-    return '?you shouldnt be seeing this?'
+    # elif 'undefined' in type_str:
+    #     return 'undefined'
+    print("VALUE ERROR", type_str)
+    raise ValueError
+    # # #TODO fix this
+    # return '?you shouldnt be seeing this?'
 
 
 def test_hex(s):
@@ -226,7 +229,7 @@ def get_fname(fpath):
 
 filtered_files = []
 for path, subdirs, files in os.walk(SRC_N_BIN_PATH):
-    # if len(filtered_files)>5:
+    # if len(filtered_files)>100:
     #     break
     for name in files:
 
@@ -269,6 +272,7 @@ for file_path in filtered_files:
         with open(stack_file_path, 'r') as f:
             loc_dict = json.loads(f.read())
     except :
+        print('ERR 1')
         continue
     
     with open(file_path, 'rb') as f:
@@ -285,6 +289,7 @@ for file_path in filtered_files:
             function_reps = get_function_reps(CU.get_top_DIE(), None)
 
             for func in function_reps:
+                PROB = False
                 start_addr = func['start_addr']
                 end_addr = func['end_addr']
 
@@ -311,8 +316,12 @@ for file_path in filtered_files:
 
                         if start_addr <= address < end_addr:
                             tokens = tokenize(f'{op_code} {op_str}')
-                            label = get_ds_loc(loc_dict, address, func['name'])
-
+                            try:
+                                label = get_ds_loc(loc_dict, address, func['name'])
+                            except ValueError as err:
+                                print('ERR 4')
+                                PROB = True
+                                break
                             # get the register and stack location for likely arg vars from the 
                             # op_str and label the instruction by using the register->param type
                             # mapping from Ghidra. A mapping of stack location -> type is stored
@@ -325,7 +334,12 @@ for file_path in filtered_files:
                                     label = func_args[loc]
 
                                 else:
-                                    label = get_arg_stack_loc(loc_dict, reg, func['name'])
+                                    try:
+                                        label = get_arg_stack_loc(loc_dict, reg, func['name'])
+                                    except ValueError as err:
+                                        print('ERR 3')
+                                        PROB = True
+                                        break
                                     func_args[loc] = label
 
                             for i, token in enumerate(tokens):
@@ -365,13 +379,17 @@ for file_path in filtered_files:
                 except CsError as e:
                     print("ERROR: %s" % e)
 
-
-                arg_info = get_arg_info(loc_dict, func['name'])
-
+                try:
+                    arg_info = get_arg_info(loc_dict, func['name'])
+                except ValueError as err:
+                    print('ERR 2')
+                    continue
                 # skip invalid functions
                 if len(labels) < 30 or len(labels) > 510 or len(set(labels)) == 1:
                     continue
-
+                
+                if PROB==True:
+                    continue
                 if not random.random() < 0.1:
                     train_file[params.fields[0]].write(' '.join(static) + '\n')
                     train_file[params.fields[1]].write(' '.join(inst_pos) + '\n')

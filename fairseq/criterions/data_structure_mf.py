@@ -12,6 +12,7 @@ from fairseq import metrics, utils
 from fairseq.criterions import FairseqCriterion, register_criterion
 from command import params
 
+torch.set_printoptions(profile="full")
 
 @register_criterion('data_structure_mf')
 class DataStructureMFCriterion(FairseqCriterion):
@@ -47,14 +48,14 @@ class DataStructureMFCriterion(FairseqCriterion):
 
         real_tokens = sample['target'].ne(self.task.label_dictionary.pad() - self.task.label_dictionary.nspecial)
 
-        print("\n\n\n DBG  : ",sample['net_input']['src_tokens'][self.fields[-3]].shape  )
-        print(' sample mm : ',sample.keys())
-        print(self.padding_idx_dict[self.fields[-3]])
-        print(' DBG real_tokens: ',real_tokens.shape)
-        print("DBG target: ", list(sample['target'].size())[1] )
 
-        # real_tokens = real_tokens[:, list(sample['net_input']['src_tokens'][self.fields[-3]])[1]]
-        print(' DBG real_tokens new!: ',real_tokens.shape)
+        # print("DBG ::: ", sample['net_input']['src_tokens'][self.fields[-3]])
+        # print("DBG ### ", self.padding_idx_dict[self.fields[-3]])
+
+        # print('DBG :::ne ',sample['net_input']['src_tokens'][self.fields[-3]].ne(self.padding_idx_dict[self.fields[-3]]))
+        # print("DBG  eq!!  ",real_tokens.eq(
+                # sample['net_input']['src_tokens'][self.fields[-3]].ne(self.padding_idx_dict[self.fields[-3]])
+                # ))
         # assert torch.all(
         #     real_tokens.eq(
         #         sample['net_input']['src_tokens'][self.fields[-3]].ne(self.padding_idx_dict[self.fields[-3]])
@@ -68,7 +69,7 @@ class DataStructureMFCriterion(FairseqCriterion):
             features_only=True,
             classification_head_name=self.classification_head_name,
         )
-        print(" DBG # " , logits.shape , real_tokens.shape)
+
         targets = model.get_targets(sample, [logits])[real_tokens].view(-1)
 
         lprobs = F.log_softmax(logits[real_tokens, :], dim=-1, dtype=torch.float32)
@@ -81,7 +82,7 @@ class DataStructureMFCriterion(FairseqCriterion):
             'sample_size': sample_size,
         }
 
-        # print(sample['target'].size())
+        # print(" DBG Logits: ",logits[real_tokens, :])
         preds = logits[real_tokens, :].argmax(dim=1)
         logging_output['ncorrect_total'] = (preds == targets).sum()
         logging_output['ncorrect'] = ((preds == targets) * (targets != 0)).sum()

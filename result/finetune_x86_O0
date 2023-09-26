@@ -3,36 +3,36 @@ DBG train:  Namespace(activation_dropout=0.0, activation_fn='gelu', adam_betas='
 
 
 DBG : here 1
-2023-09-26 08:21:56 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='gelu', adam_betas='(0.9,0.98)', adam_eps=1e-06, all_gather_list_size=16384, arch='roberta_mf_nau', attention_dropout=0.1, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_suffix='', classification_head_name='data_structure_head', clip_norm=0.0, cpu=False, criterion='data_structure_mf', curriculum=0, data='data-bin/finetune/x86-O0', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_num_procs=1, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.1, empty_cache_freq=0, encoder_attention_heads=12, encoder_embed_dim=768, encoder_ffn_embed_dim=3072, encoder_layerdrop=0, encoder_layers=8, encoder_layers_to_keep=None, end_learning_rate=0.0, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, localsgd_frequency=3, log_format='json', log_interval=10, lr=[1e-05], lr_scheduler='polynomial_decay', max_epoch=0, max_positions=512, max_sentences=8, max_sentences_valid=8, max_tokens=None, max_tokens_valid=None, max_update=6000, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=True, min_loss_scale=0.0001, min_lr=-1, model_parallel_size=1, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_seed_provided=True, no_shuffle=False, nprocs_per_node=1, num_classes=44, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=True, reset_lr_scheduler=False, reset_meters=True, reset_optimizer=True, restore_file='/home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt', save_dir='/home/raisul/stateformer/checkpoints/finetune_x86_O0/', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, sentence_avg=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, stop_time_hours=0, task='data_structure_mf', tensorboard_logdir='', threshold_loss_scale=None, tokenizer=None, total_num_update=6000, tpu=False, train_subset='train', update_freq=[4], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_updates=100, weight_decay=0.01, zero_sharding='none')
-2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] static dictionary: 657 types
-2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] inst_pos_emb dictionary: 521 types
-2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] op_pos_emb dictionary: 33 types
-2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] arch_emb dictionary: 9 types
-2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] byte1 dictionary: 265 types
-2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] byte2 dictionary: 265 types
-2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] byte3 dictionary: 265 types
-2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] byte4 dictionary: 265 types
+2023-09-26 12:37:28 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='gelu', adam_betas='(0.9,0.98)', adam_eps=1e-06, all_gather_list_size=16384, arch='roberta_mf_nau', attention_dropout=0.1, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_suffix='', classification_head_name='data_structure_head', clip_norm=0.0, cpu=False, criterion='data_structure_mf', curriculum=0, data='data-bin/finetune/x86-O0', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_num_procs=1, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.1, empty_cache_freq=0, encoder_attention_heads=12, encoder_embed_dim=768, encoder_ffn_embed_dim=3072, encoder_layerdrop=0, encoder_layers=8, encoder_layers_to_keep=None, end_learning_rate=0.0, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, localsgd_frequency=3, log_format='json', log_interval=10, lr=[1e-05], lr_scheduler='polynomial_decay', max_epoch=0, max_positions=512, max_sentences=8, max_sentences_valid=8, max_tokens=None, max_tokens_valid=None, max_update=6000, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=True, min_loss_scale=0.0001, min_lr=-1, model_parallel_size=1, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_seed_provided=True, no_shuffle=False, nprocs_per_node=1, num_classes=44, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=True, reset_lr_scheduler=False, reset_meters=True, reset_optimizer=True, restore_file='/home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt', save_dir='/home/raisul/stateformer/checkpoints/finetune_x86_O0/', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, sentence_avg=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, stop_time_hours=0, task='data_structure_mf', tensorboard_logdir='', threshold_loss_scale=None, tokenizer=None, total_num_update=6000, tpu=False, train_subset='train', update_freq=[4], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_updates=100, weight_decay=0.01, zero_sharding='none')
+2023-09-26 12:37:28 | INFO | fairseq.tasks.data_structure_mf | | [input] static dictionary: 657 types
+2023-09-26 12:37:28 | INFO | fairseq.tasks.data_structure_mf | | [input] inst_pos_emb dictionary: 521 types
+2023-09-26 12:37:28 | INFO | fairseq.tasks.data_structure_mf | | [input] op_pos_emb dictionary: 33 types
+2023-09-26 12:37:28 | INFO | fairseq.tasks.data_structure_mf | | [input] arch_emb dictionary: 9 types
+2023-09-26 12:37:28 | INFO | fairseq.tasks.data_structure_mf | | [input] byte1 dictionary: 265 types
+2023-09-26 12:37:28 | INFO | fairseq.tasks.data_structure_mf | | [input] byte2 dictionary: 265 types
+2023-09-26 12:37:28 | INFO | fairseq.tasks.data_structure_mf | | [input] byte3 dictionary: 265 types
+2023-09-26 12:37:28 | INFO | fairseq.tasks.data_structure_mf | | [input] byte4 dictionary: 265 types
 | [label] dictionary: 49 types
-2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | cover dictionary: 8 types
-2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/static/valid
-DBG :  static <fairseq.data.dictionary.Dictionary object at 0x7f737124fe20> data-bin/finetune/x86-O0/static/valid None
-2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/inst_pos_emb/valid
-DBG :  inst_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e160> data-bin/finetune/x86-O0/inst_pos_emb/valid None
-2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/op_pos_emb/valid
-DBG :  op_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e0d0> data-bin/finetune/x86-O0/op_pos_emb/valid None
-2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/arch_emb/valid
-DBG :  arch_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e400> data-bin/finetune/x86-O0/arch_emb/valid None
-2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte1/valid
-DBG :  byte1 <fairseq.data.dictionary.Dictionary object at 0x7f737125e2e0> data-bin/finetune/x86-O0/byte1/valid None
-2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte2/valid
-DBG :  byte2 <fairseq.data.dictionary.Dictionary object at 0x7f737125e310> data-bin/finetune/x86-O0/byte2/valid None
-2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte3/valid
-DBG :  byte3 <fairseq.data.dictionary.Dictionary object at 0x7f737125e460> data-bin/finetune/x86-O0/byte3/valid None
-2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte4/valid
-DBG :  byte4 <fairseq.data.dictionary.Dictionary object at 0x7f737125e490> data-bin/finetune/x86-O0/byte4/valid None
-2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/label/valid
-2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | Loaded valid with #samples: 2
-2023-09-26 08:21:56 | INFO | fairseq_cli.train | RobertaModelMFNAU(
+2023-09-26 12:37:28 | INFO | fairseq.tasks.data_structure_mf | cover dictionary: 8 types
+2023-09-26 12:37:28 | INFO | fairseq.data.data_utils | loaded 342 examples from: data-bin/finetune/x86-O0/static/valid
+DBG :  static <fairseq.data.dictionary.Dictionary object at 0x7ff6b39b79d0> data-bin/finetune/x86-O0/static/valid None
+2023-09-26 12:37:28 | INFO | fairseq.data.data_utils | loaded 342 examples from: data-bin/finetune/x86-O0/inst_pos_emb/valid
+DBG :  inst_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7ff6b39b78b0> data-bin/finetune/x86-O0/inst_pos_emb/valid None
+2023-09-26 12:37:28 | INFO | fairseq.data.data_utils | loaded 342 examples from: data-bin/finetune/x86-O0/op_pos_emb/valid
+DBG :  op_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7ff6b39b7880> data-bin/finetune/x86-O0/op_pos_emb/valid None
+2023-09-26 12:37:28 | INFO | fairseq.data.data_utils | loaded 342 examples from: data-bin/finetune/x86-O0/arch_emb/valid
+DBG :  arch_emb <fairseq.data.dictionary.Dictionary object at 0x7ff6b39b7a30> data-bin/finetune/x86-O0/arch_emb/valid None
+2023-09-26 12:37:28 | INFO | fairseq.data.data_utils | loaded 342 examples from: data-bin/finetune/x86-O0/byte1/valid
+DBG :  byte1 <fairseq.data.dictionary.Dictionary object at 0x7ff6b3944970> data-bin/finetune/x86-O0/byte1/valid None
+2023-09-26 12:37:28 | INFO | fairseq.data.data_utils | loaded 342 examples from: data-bin/finetune/x86-O0/byte2/valid
+DBG :  byte2 <fairseq.data.dictionary.Dictionary object at 0x7ff6b3944ac0> data-bin/finetune/x86-O0/byte2/valid None
+2023-09-26 12:37:28 | INFO | fairseq.data.data_utils | loaded 342 examples from: data-bin/finetune/x86-O0/byte3/valid
+DBG :  byte3 <fairseq.data.dictionary.Dictionary object at 0x7ff6b3944a00> data-bin/finetune/x86-O0/byte3/valid None
+2023-09-26 12:37:28 | INFO | fairseq.data.data_utils | loaded 342 examples from: data-bin/finetune/x86-O0/byte4/valid
+DBG :  byte4 <fairseq.data.dictionary.Dictionary object at 0x7ff6b3944a30> data-bin/finetune/x86-O0/byte4/valid None
+2023-09-26 12:37:28 | INFO | fairseq.data.data_utils | loaded 342 examples from: data-bin/finetune/x86-O0/label/valid
+2023-09-26 12:37:28 | INFO | fairseq.tasks.data_structure_mf | Loaded valid with #samples: 342
+2023-09-26 12:37:28 | INFO | fairseq_cli.train | RobertaModelMFNAU(
   (encoder): RobertaEncoderMF(
     (sentence_encoder): TransformerSentenceEncoderMFNAU(
       (dropout_module): FairseqDropout()
@@ -85,120 +85,2936 @@ DBG :  byte4 <fairseq.data.dictionary.Dictionary object at 0x7f737125e490> data-
     )
   )
 )
-2023-09-26 08:21:56 | INFO | fairseq_cli.train | task: data_structure_mf (DataStructureMF)
-2023-09-26 08:21:56 | INFO | fairseq_cli.train | model: roberta_mf_nau (RobertaModelMFNAU)
-2023-09-26 08:21:56 | INFO | fairseq_cli.train | criterion: data_structure_mf (DataStructureMFCriterion)
-2023-09-26 08:21:56 | INFO | fairseq_cli.train | num. model params: 64190264 (num. trained: 64190264)
-2023-09-26 08:21:58 | INFO | fairseq.trainer | detected shared parameter: encoder.sentence_encoder.bytecombine.layer_1.bias <- encoder.sentence_encoder.bytecombine.layer_2.bias
-2023-09-26 08:21:58 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
-2023-09-26 08:21:58 | INFO | fairseq.utils | rank   0: capabilities =  8.9  ; total memory = 23.628 GB ; name = NVIDIA GeForce RTX 4090                 
-2023-09-26 08:21:58 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
-2023-09-26 08:21:58 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
-2023-09-26 08:21:58 | INFO | fairseq_cli.train | max tokens per GPU = None and max sentences per GPU = 8
-2023-09-26 08:21:58 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.dense.weight
-2023-09-26 08:21:58 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.dense.bias
-2023-09-26 08:21:58 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.out_proj.weight
-2023-09-26 08:21:58 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.out_proj.bias
-2023-09-26 08:21:58 | INFO | fairseq.trainer | loaded checkpoint /home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt (epoch 24 @ 0 updates)
-2023-09-26 08:21:58 | INFO | fairseq.trainer | loading train data for epoch 1
-2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/static/train
-DBG :  static <fairseq.data.dictionary.Dictionary object at 0x7f737124fe20> data-bin/finetune/x86-O0/static/train None
-2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/inst_pos_emb/train
-DBG :  inst_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e160> data-bin/finetune/x86-O0/inst_pos_emb/train None
-2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/op_pos_emb/train
-DBG :  op_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e0d0> data-bin/finetune/x86-O0/op_pos_emb/train None
-2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/arch_emb/train
-DBG :  arch_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e400> data-bin/finetune/x86-O0/arch_emb/train None
-2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte1/train
-DBG :  byte1 <fairseq.data.dictionary.Dictionary object at 0x7f737125e2e0> data-bin/finetune/x86-O0/byte1/train None
-2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte2/train
-DBG :  byte2 <fairseq.data.dictionary.Dictionary object at 0x7f737125e310> data-bin/finetune/x86-O0/byte2/train None
-2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte3/train
-DBG :  byte3 <fairseq.data.dictionary.Dictionary object at 0x7f737125e460> data-bin/finetune/x86-O0/byte3/train None
-2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte4/train
-DBG :  byte4 <fairseq.data.dictionary.Dictionary object at 0x7f737125e490> data-bin/finetune/x86-O0/byte4/train None
-2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/label/train
-2023-09-26 08:21:58 | INFO | fairseq.tasks.data_structure_mf | Loaded train with #samples: 15
-2023-09-26 08:21:58 | INFO | fairseq.trainer | begin training epoch 1
- DBG  <fairseq.logging.progress_bar.JsonProgressBar object at 0x7f7370cee700>
+2023-09-26 12:37:28 | INFO | fairseq_cli.train | task: data_structure_mf (DataStructureMF)
+2023-09-26 12:37:28 | INFO | fairseq_cli.train | model: roberta_mf_nau (RobertaModelMFNAU)
+2023-09-26 12:37:28 | INFO | fairseq_cli.train | criterion: data_structure_mf (DataStructureMFCriterion)
+2023-09-26 12:37:28 | INFO | fairseq_cli.train | num. model params: 64190264 (num. trained: 64190264)
+2023-09-26 12:37:29 | INFO | fairseq.trainer | detected shared parameter: encoder.sentence_encoder.bytecombine.layer_1.bias <- encoder.sentence_encoder.bytecombine.layer_2.bias
+2023-09-26 12:37:29 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2023-09-26 12:37:29 | INFO | fairseq.utils | rank   0: capabilities =  8.9  ; total memory = 23.628 GB ; name = NVIDIA GeForce RTX 4090                 
+2023-09-26 12:37:29 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2023-09-26 12:37:29 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
+2023-09-26 12:37:29 | INFO | fairseq_cli.train | max tokens per GPU = None and max sentences per GPU = 8
+2023-09-26 12:37:29 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.dense.weight
+2023-09-26 12:37:29 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.dense.bias
+2023-09-26 12:37:29 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.out_proj.weight
+2023-09-26 12:37:29 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.out_proj.bias
+2023-09-26 12:37:29 | INFO | fairseq.trainer | loaded checkpoint /home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt (epoch 24 @ 0 updates)
+2023-09-26 12:37:29 | INFO | fairseq.trainer | loading train data for epoch 1
+2023-09-26 12:37:29 | INFO | fairseq.data.data_utils | loaded 2828 examples from: data-bin/finetune/x86-O0/static/train
+DBG :  static <fairseq.data.dictionary.Dictionary object at 0x7ff6b39b79d0> data-bin/finetune/x86-O0/static/train None
+2023-09-26 12:37:29 | INFO | fairseq.data.data_utils | loaded 2828 examples from: data-bin/finetune/x86-O0/inst_pos_emb/train
+DBG :  inst_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7ff6b39b78b0> data-bin/finetune/x86-O0/inst_pos_emb/train None
+2023-09-26 12:37:29 | INFO | fairseq.data.data_utils | loaded 2828 examples from: data-bin/finetune/x86-O0/op_pos_emb/train
+DBG :  op_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7ff6b39b7880> data-bin/finetune/x86-O0/op_pos_emb/train None
+2023-09-26 12:37:29 | INFO | fairseq.data.data_utils | loaded 2828 examples from: data-bin/finetune/x86-O0/arch_emb/train
+DBG :  arch_emb <fairseq.data.dictionary.Dictionary object at 0x7ff6b39b7a30> data-bin/finetune/x86-O0/arch_emb/train None
+2023-09-26 12:37:29 | INFO | fairseq.data.data_utils | loaded 2828 examples from: data-bin/finetune/x86-O0/byte1/train
+DBG :  byte1 <fairseq.data.dictionary.Dictionary object at 0x7ff6b3944970> data-bin/finetune/x86-O0/byte1/train None
+2023-09-26 12:37:29 | INFO | fairseq.data.data_utils | loaded 2828 examples from: data-bin/finetune/x86-O0/byte2/train
+DBG :  byte2 <fairseq.data.dictionary.Dictionary object at 0x7ff6b3944ac0> data-bin/finetune/x86-O0/byte2/train None
+2023-09-26 12:37:29 | INFO | fairseq.data.data_utils | loaded 2828 examples from: data-bin/finetune/x86-O0/byte3/train
+DBG :  byte3 <fairseq.data.dictionary.Dictionary object at 0x7ff6b3944a00> data-bin/finetune/x86-O0/byte3/train None
+2023-09-26 12:37:29 | INFO | fairseq.data.data_utils | loaded 2828 examples from: data-bin/finetune/x86-O0/byte4/train
+DBG :  byte4 <fairseq.data.dictionary.Dictionary object at 0x7ff6b3944a30> data-bin/finetune/x86-O0/byte4/train None
+2023-09-26 12:37:29 | INFO | fairseq.data.data_utils | loaded 2828 examples from: data-bin/finetune/x86-O0/label/train
+2023-09-26 12:37:29 | INFO | fairseq.tasks.data_structure_mf | Loaded train with #samples: 2828
+2023-09-26 12:37:29 | INFO | fairseq.trainer | begin training epoch 1
+ DBG  <fairseq.logging.progress_bar.JsonProgressBar object at 0x7ff6b355c6a0>
 
- DBG # old target shape torch.Size([7, 400])
+ DBG # old target shape torch.Size([8, 250])
 
+ DBG # old target shape torch.Size([8, 369])
 
+ DBG # old target shape torch.Size([8, 293])
 
- DBG  :  torch.Size([7, 400])
- sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
-1
- DBG real_tokens:  torch.Size([7, 400])
-DBG target:  400
- DBG real_tokens new!:  torch.Size([7, 400])
- DBG #  torch.Size([7, 400, 44]) torch.Size([7, 400])
+ DBG # old target shape torch.Size([8, 190])
+2023-09-26 12:37:30 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 64.0
 
- DBG # old target shape torch.Size([8, 451])
+ DBG # old target shape torch.Size([8, 409])
 
+ DBG # old target shape torch.Size([8, 380])
 
+ DBG # old target shape torch.Size([8, 396])
 
- DBG  :  torch.Size([8, 451])
- sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
-1
- DBG real_tokens:  torch.Size([8, 451])
-DBG target:  451
- DBG real_tokens new!:  torch.Size([8, 451])
- DBG #  torch.Size([8, 451, 44]) torch.Size([8, 451])
-2023-09-26 08:22:00 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 64.0
-2023-09-26 08:22:00 | INFO | fairseq_cli.train | begin validation on "valid" subset
+ DBG # old target shape torch.Size([8, 332])
+2023-09-26 12:37:30 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 32.0
 
+ DBG # old target shape torch.Size([8, 296])
 
+ DBG # old target shape torch.Size([8, 429])
 
- DBG  :  torch.Size([2, 274])
- sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
-1
- DBG real_tokens:  torch.Size([2, 274])
-DBG target:  274
- DBG real_tokens new!:  torch.Size([2, 274])
- DBG #  torch.Size([2, 274, 44]) torch.Size([2, 274])
-2023-09-26 08:22:00 | INFO | valid | {"epoch": 1, "valid_loss": "6.256", "valid_nll_loss": "6.231", "valid_precision": "0", "valid_recall": "0", "valid_F1": "0", "valid_accuracy": "0", "valid_wps": "0", "valid_wpb": "508", "valid_bsz": "506", "valid_num_updates": "0"}
-2023-09-26 08:22:00 | INFO | fairseq_cli.train | begin save checkpoint
-2023-09-26 08:22:01 | INFO | fairseq.checkpoint_utils | saved checkpoint /home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt (epoch 1 @ 0 updates, score 0.0) (writing took 1.5023399740000514 seconds)
-2023-09-26 08:22:01 | INFO | fairseq_cli.train | end of epoch 1 (average epoch stats below)
-2023-09-26 08:22:01 | INFO | train | {"epoch": 1, "train_loss_scale": "64", "train_train_wall": "1", "train_wall": "4"}
-2023-09-26 08:22:01 | INFO | fairseq.trainer | begin training epoch 2
- DBG  <fairseq.logging.progress_bar.JsonProgressBar object at 0x7f7370cee130>
+ DBG # old target shape torch.Size([8, 407])
 
- DBG # old target shape torch.Size([7, 400])
+ DBG # old target shape torch.Size([8, 258])
+2023-09-26 12:37:30 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 16.0
 
+ DBG # old target shape torch.Size([8, 240])
 
+ DBG # old target shape torch.Size([8, 341])
 
- DBG  :  torch.Size([7, 400])
- sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
-1
- DBG real_tokens:  torch.Size([7, 400])
-DBG target:  400
- DBG real_tokens new!:  torch.Size([7, 400])
- DBG #  torch.Size([7, 400, 44]) torch.Size([7, 400])
+ DBG # old target shape torch.Size([8, 405])
 
- DBG # old target shape torch.Size([8, 451])
+ DBG # old target shape torch.Size([8, 488])
 
+ DBG # old target shape torch.Size([8, 418])
 
+ DBG # old target shape torch.Size([8, 272])
 
- DBG  :  torch.Size([8, 451])
- sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
-1
- DBG real_tokens:  torch.Size([8, 451])
-DBG target:  451
- DBG real_tokens new!:  torch.Size([8, 451])
- DBG #  torch.Size([8, 451, 44]) torch.Size([8, 451])
-2023-09-26 08:22:02 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 32.0
-2023-09-26 08:22:02 | INFO | fairseq_cli.train | begin validation on "valid" subset
+ DBG # old target shape torch.Size([8, 314])
 
+ DBG # old target shape torch.Size([8, 304])
 
+ DBG # old target shape torch.Size([8, 384])
 
- DBG  :  torch.Size([2, 274])
- sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
-1
- DBG real_tokens:  torch.Size([2, 274])
-DBG target:  274
- DBG real_tokens new!:  torch.Size([2, 274])
- DBG #  torch.Size([2, 274, 44]) torch.Size([2, 274])
-2023-09-26 08:22:02 | INFO | valid | {"epoch": 2, "valid_loss": "6.256", "valid_nll_loss": "6.231", "valid_precision": "0", "valid_recall": "0", "valid_F1": "0", "valid_accuracy": "0", "valid_wps": "0", "valid_wpb": "508", "valid_bsz": "506", "valid_num_updates": "0", "valid_best_accuracy": "0"}
-2023-09-26 08:22:02 | INFO | fairseq_cli.train | begin save checkpoint
+ DBG # old target shape torch.Size([8, 366])
+
+ DBG # old target shape torch.Size([8, 268])
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 346])
+
+ DBG # old target shape torch.Size([8, 202])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 426])
+
+ DBG # old target shape torch.Size([8, 250])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 308])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 235])
+
+ DBG # old target shape torch.Size([8, 313])
+
+ DBG # old target shape torch.Size([8, 161])
+
+ DBG # old target shape torch.Size([8, 243])
+
+ DBG # old target shape torch.Size([8, 268])
+
+ DBG # old target shape torch.Size([8, 185])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 349])
+
+ DBG # old target shape torch.Size([8, 444])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 416])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 496])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 483])
+
+ DBG # old target shape torch.Size([8, 441])
+2023-09-26 12:37:31 | INFO | train_inner | {"epoch": 1, "update": 0.146, "loss": "5.965", "nll_loss": "5.929", "precision": "5.1", "recall": "9.6", "F1": "6.6", "accuracy": "5.1", "wps": "63816.4", "ups": "12.13", "wpb": "5228.2", "bsz": "5196.2", "num_updates": "10", "lr": "1e-06", "gnorm": "8.793", "loss_scale": "16", "train_wall": "1", "wall": "2"}
+
+ DBG # old target shape torch.Size([8, 330])
+
+ DBG # old target shape torch.Size([8, 491])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 410])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 452])
+
+ DBG # old target shape torch.Size([8, 332])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 321])
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 309])
+
+ DBG # old target shape torch.Size([8, 335])
+
+ DBG # old target shape torch.Size([8, 264])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 508])
+
+ DBG # old target shape torch.Size([8, 258])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 456])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 184])
+
+ DBG # old target shape torch.Size([8, 297])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 322])
+
+ DBG # old target shape torch.Size([8, 464])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 232])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 396])
+
+ DBG # old target shape torch.Size([8, 387])
+
+ DBG # old target shape torch.Size([8, 465])
+
+ DBG # old target shape torch.Size([8, 379])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 403])
+
+ DBG # old target shape torch.Size([8, 302])
+
+ DBG # old target shape torch.Size([8, 454])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 441])
+2023-09-26 12:37:32 | INFO | train_inner | {"epoch": 1, "update": 0.258, "loss": "5.952", "nll_loss": "5.918", "precision": "4.8", "recall": "9.2", "F1": "6.3", "accuracy": "4.8", "wps": "58895.2", "ups": "10.5", "wpb": "5609.9", "bsz": "5577.9", "num_updates": "20", "lr": "2e-06", "gnorm": "8.875", "loss_scale": "16", "train_wall": "1", "wall": "3"}
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 339])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 441])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 367])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 324])
+
+ DBG # old target shape torch.Size([8, 434])
+
+ DBG # old target shape torch.Size([8, 290])
+
+ DBG # old target shape torch.Size([8, 274])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 423])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 400])
+
+ DBG # old target shape torch.Size([8, 390])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 212])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 500])
+
+ DBG # old target shape torch.Size([8, 190])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 264])
+
+ DBG # old target shape torch.Size([8, 314])
+
+ DBG # old target shape torch.Size([8, 224])
+
+ DBG # old target shape torch.Size([8, 205])
+
+ DBG # old target shape torch.Size([8, 310])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 434])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 474])
+
+ DBG # old target shape torch.Size([8, 308])
+
+ DBG # old target shape torch.Size([8, 262])
+
+ DBG # old target shape torch.Size([8, 146])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 378])
+2023-09-26 12:37:33 | INFO | train_inner | {"epoch": 1, "update": 0.371, "loss": "5.847", "nll_loss": "5.812", "precision": "5.6", "recall": "10.7", "F1": "7.3", "accuracy": "5.6", "wps": "59765.1", "ups": "10.95", "wpb": "5459.5", "bsz": "5427.5", "num_updates": "30", "lr": "3e-06", "gnorm": "8.701", "loss_scale": "16", "train_wall": "1", "wall": "4"}
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 468])
+
+ DBG # old target shape torch.Size([8, 480])
+
+ DBG # old target shape torch.Size([8, 412])
+
+ DBG # old target shape torch.Size([8, 318])
+
+ DBG # old target shape torch.Size([8, 338])
+
+ DBG # old target shape torch.Size([8, 337])
+
+ DBG # old target shape torch.Size([8, 302])
+
+ DBG # old target shape torch.Size([8, 343])
+
+ DBG # old target shape torch.Size([8, 241])
+
+ DBG # old target shape torch.Size([8, 345])
+
+ DBG # old target shape torch.Size([8, 420])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 292])
+
+ DBG # old target shape torch.Size([8, 205])
+
+ DBG # old target shape torch.Size([8, 401])
+
+ DBG # old target shape torch.Size([8, 389])
+
+ DBG # old target shape torch.Size([8, 208])
+
+ DBG # old target shape torch.Size([8, 414])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 503])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 400])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 348])
+
+ DBG # old target shape torch.Size([8, 499])
+
+ DBG # old target shape torch.Size([8, 383])
+
+ DBG # old target shape torch.Size([8, 298])
+
+ DBG # old target shape torch.Size([8, 352])
+
+ DBG # old target shape torch.Size([8, 344])
+
+ DBG # old target shape torch.Size([8, 287])
+
+ DBG # old target shape torch.Size([8, 503])
+
+ DBG # old target shape torch.Size([8, 356])
+
+ DBG # old target shape torch.Size([8, 251])
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 294])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 362])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 345])
+2023-09-26 12:37:34 | INFO | train_inner | {"epoch": 1, "update": 0.483, "loss": "5.654", "nll_loss": "5.623", "precision": "6", "recall": "11.7", "F1": "7.9", "accuracy": "6", "wps": "60917.7", "ups": "10.49", "wpb": "5805.6", "bsz": "5773.6", "num_updates": "40", "lr": "4e-06", "gnorm": "8.575", "loss_scale": "16", "train_wall": "1", "wall": "5"}
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 284])
+
+ DBG # old target shape torch.Size([8, 226])
+
+ DBG # old target shape torch.Size([8, 289])
+
+ DBG # old target shape torch.Size([8, 402])
+
+ DBG # old target shape torch.Size([8, 330])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 438])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 384])
+
+ DBG # old target shape torch.Size([8, 325])
+
+ DBG # old target shape torch.Size([8, 401])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 498])
+
+ DBG # old target shape torch.Size([8, 299])
+
+ DBG # old target shape torch.Size([8, 304])
+
+ DBG # old target shape torch.Size([8, 428])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 443])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 256])
+
+ DBG # old target shape torch.Size([8, 373])
+
+ DBG # old target shape torch.Size([8, 210])
+
+ DBG # old target shape torch.Size([8, 317])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 485])
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 297])
+
+ DBG # old target shape torch.Size([8, 278])
+
+ DBG # old target shape torch.Size([8, 200])
+
+ DBG # old target shape torch.Size([8, 261])
+
+ DBG # old target shape torch.Size([8, 259])
+
+ DBG # old target shape torch.Size([8, 337])
+
+ DBG # old target shape torch.Size([8, 488])
+2023-09-26 12:37:35 | INFO | train_inner | {"epoch": 1, "update": 0.596, "loss": "5.173", "nll_loss": "5.143", "precision": "8.3", "recall": "12.9", "F1": "10", "accuracy": "15.6", "wps": "62436", "ups": "11.23", "wpb": "5557.7", "bsz": "5525.7", "num_updates": "50", "lr": "5e-06", "gnorm": "8.131", "loss_scale": "16", "train_wall": "1", "wall": "6"}
+
+ DBG # old target shape torch.Size([8, 172])
+
+ DBG # old target shape torch.Size([8, 235])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 310])
+
+ DBG # old target shape torch.Size([8, 468])
+
+ DBG # old target shape torch.Size([8, 207])
+
+ DBG # old target shape torch.Size([8, 177])
+
+ DBG # old target shape torch.Size([8, 501])
+
+ DBG # old target shape torch.Size([8, 280])
+
+ DBG # old target shape torch.Size([8, 294])
+
+ DBG # old target shape torch.Size([8, 286])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 277])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 353])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 463])
+
+ DBG # old target shape torch.Size([8, 257])
+
+ DBG # old target shape torch.Size([8, 383])
+
+ DBG # old target shape torch.Size([8, 387])
+
+ DBG # old target shape torch.Size([8, 320])
+
+ DBG # old target shape torch.Size([8, 486])
+
+ DBG # old target shape torch.Size([8, 247])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 243])
+
+ DBG # old target shape torch.Size([8, 290])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 470])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 327])
+
+ DBG # old target shape torch.Size([8, 219])
+
+ DBG # old target shape torch.Size([8, 224])
+
+ DBG # old target shape torch.Size([8, 333])
+
+ DBG # old target shape torch.Size([8, 385])
+
+ DBG # old target shape torch.Size([8, 267])
+2023-09-26 12:37:35 | INFO | train_inner | {"epoch": 1, "update": 0.708, "loss": "4.448", "nll_loss": "4.422", "precision": "12.7", "recall": "5.1", "F1": "6.8", "accuracy": "42.8", "wps": "62788.5", "ups": "11.85", "wpb": "5296.9", "bsz": "5264.9", "num_updates": "60", "lr": "6e-06", "gnorm": "7.649", "loss_scale": "16", "train_wall": "1", "wall": "7"}
+
+ DBG # old target shape torch.Size([8, 209])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 457])
+
+ DBG # old target shape torch.Size([8, 376])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 249])
+
+ DBG # old target shape torch.Size([8, 395])
+
+ DBG # old target shape torch.Size([8, 367])
+
+ DBG # old target shape torch.Size([8, 165])
+
+ DBG # old target shape torch.Size([8, 278])
+
+ DBG # old target shape torch.Size([8, 325])
+
+ DBG # old target shape torch.Size([8, 469])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 381])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 497])
+
+ DBG # old target shape torch.Size([8, 419])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 242])
+
+ DBG # old target shape torch.Size([8, 370])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 343])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 309])
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 283])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 368])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 376])
+
+ DBG # old target shape torch.Size([8, 482])
+
+ DBG # old target shape torch.Size([4, 355])
+
+ DBG # old target shape torch.Size([8, 236])
+
+ DBG # old target shape torch.Size([8, 495])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 470])
+2023-09-26 12:37:36 | INFO | train_inner | {"epoch": 1, "update": 0.82, "loss": "3.605", "nll_loss": "3.585", "precision": "12.6", "recall": "1.1", "F1": "1.9", "accuracy": "48.5", "wps": "59802.2", "ups": "10.65", "wpb": "5615.1", "bsz": "5583.5", "num_updates": "70", "lr": "7e-06", "gnorm": "6.576", "loss_scale": "16", "train_wall": "1", "wall": "8"}
+
+ DBG # old target shape torch.Size([8, 485])
+
+ DBG # old target shape torch.Size([8, 171])
+
+ DBG # old target shape torch.Size([8, 361])
+
+ DBG # old target shape torch.Size([8, 280])
+
+ DBG # old target shape torch.Size([8, 427])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 390])
+
+ DBG # old target shape torch.Size([8, 279])
+
+ DBG # old target shape torch.Size([8, 476])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 373])
+
+ DBG # old target shape torch.Size([8, 176])
+
+ DBG # old target shape torch.Size([8, 505])
+
+ DBG # old target shape torch.Size([8, 229])
+
+ DBG # old target shape torch.Size([8, 426])
+
+ DBG # old target shape torch.Size([8, 329])
+
+ DBG # old target shape torch.Size([8, 416])
+
+ DBG # old target shape torch.Size([8, 326])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 277])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 385])
+
+ DBG # old target shape torch.Size([8, 394])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 461])
+
+ DBG # old target shape torch.Size([8, 160])
+
+ DBG # old target shape torch.Size([8, 351])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 471])
+
+ DBG # old target shape torch.Size([8, 262])
+
+ DBG # old target shape torch.Size([8, 311])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 148])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 272])
+2023-09-26 12:37:37 | INFO | train_inner | {"epoch": 1, "update": 0.933, "loss": "2.939", "nll_loss": "2.922", "precision": "0", "recall": "0", "F1": "0", "accuracy": "47.9", "wps": "60409.8", "ups": "10.94", "wpb": "5523.2", "bsz": "5491.2", "num_updates": "80", "lr": "8e-06", "gnorm": "4.3", "loss_scale": "16", "train_wall": "1", "wall": "9"}
+
+ DBG # old target shape torch.Size([8, 239])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 365])
+
+ DBG # old target shape torch.Size([8, 320])
+
+ DBG # old target shape torch.Size([8, 208])
+
+ DBG # old target shape torch.Size([8, 287])
+
+ DBG # old target shape torch.Size([8, 476])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 509])
+
+ DBG # old target shape torch.Size([8, 184])
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 197])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 240])
+
+ DBG # old target shape torch.Size([8, 274])
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 357])
+
+ DBG # old target shape torch.Size([8, 315])
+
+ DBG # old target shape torch.Size([8, 395])
+
+ DBG # old target shape torch.Size([8, 473])
+2023-09-26 12:37:38 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2023-09-26 12:37:38 | INFO | valid | {"epoch": 1, "valid_loss": "2.486", "valid_nll_loss": "2.472", "valid_precision": "61.7", "valid_recall": "1.4", "valid_F1": "2.7", "valid_accuracy": "48.6", "valid_wps": "171991", "valid_wpb": "1340.4", "valid_bsz": "1332.5", "valid_num_updates": "86"}
+2023-09-26 12:37:38 | INFO | fairseq_cli.train | begin save checkpoint
+2023-09-26 12:37:43 | INFO | fairseq.checkpoint_utils | saved checkpoint /home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt (epoch 1 @ 86 updates, score 48.6) (writing took 4.6537663850012905 seconds)
+2023-09-26 12:37:43 | INFO | fairseq_cli.train | end of epoch 1 (average epoch stats below)
+2023-09-26 12:37:43 | INFO | train | {"epoch": 1, "train_loss": "4.8", "train_nll_loss": "4.772", "train_precision": "9.7", "train_recall": "7.1", "train_F1": "5.5", "train_accuracy": "23.7", "train_wps": "36162.2", "train_ups": "6.6", "train_wpb": "5468.9", "train_bsz": "5437.2", "train_num_updates": "86", "train_lr": "8.6e-06", "train_gnorm": "7.398", "train_loss_scale": "16", "train_train_wall": "9", "train_wall": "14"}
+2023-09-26 12:37:43 | INFO | fairseq.trainer | begin training epoch 2
+ DBG  <fairseq.logging.progress_bar.JsonProgressBar object at 0x7ff6b351aa60>
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 461])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 452])
+
+ DBG # old target shape torch.Size([8, 236])
+
+ DBG # old target shape torch.Size([8, 395])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 508])
+
+ DBG # old target shape torch.Size([8, 258])
+
+ DBG # old target shape torch.Size([8, 287])
+
+ DBG # old target shape torch.Size([8, 313])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 185])
+2023-09-26 12:37:44 | INFO | train_inner | {"epoch": 2, "update": 1.045, "loss": "2.573", "nll_loss": "2.558", "precision": "55.9", "recall": "0.8", "F1": "1.6", "accuracy": "49.9", "wps": "8100.7", "ups": "1.59", "wpb": "5101.8", "bsz": "5071.4", "num_updates": "90", "lr": "9e-06", "gnorm": "3.187", "loss_scale": "16", "train_wall": "1", "wall": "15"}
+
+ DBG # old target shape torch.Size([8, 400])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 299])
+
+ DBG # old target shape torch.Size([8, 476])
+
+ DBG # old target shape torch.Size([8, 259])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 325])
+
+ DBG # old target shape torch.Size([8, 346])
+
+ DBG # old target shape torch.Size([8, 272])
+
+ DBG # old target shape torch.Size([8, 434])
+
+ DBG # old target shape torch.Size([8, 338])
+
+ DBG # old target shape torch.Size([8, 184])
+
+ DBG # old target shape torch.Size([8, 309])
+
+ DBG # old target shape torch.Size([8, 207])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 376])
+
+ DBG # old target shape torch.Size([8, 403])
+
+ DBG # old target shape torch.Size([8, 332])
+
+ DBG # old target shape torch.Size([8, 345])
+
+ DBG # old target shape torch.Size([8, 469])
+
+ DBG # old target shape torch.Size([8, 497])
+
+ DBG # old target shape torch.Size([8, 385])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 280])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 304])
+
+ DBG # old target shape torch.Size([8, 283])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 390])
+
+ DBG # old target shape torch.Size([8, 176])
+
+ DBG # old target shape torch.Size([8, 400])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 311])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 380])
+2023-09-26 12:37:45 | INFO | train_inner | {"epoch": 2, "update": 1.157, "loss": "2.408", "nll_loss": "2.394", "precision": "62.6", "recall": "4.1", "F1": "7.6", "accuracy": "48.9", "wps": "65483.7", "ups": "11.56", "wpb": "5665.4", "bsz": "5633.4", "num_updates": "100", "lr": "1e-05", "gnorm": "2.691", "loss_scale": "16", "train_wall": "1", "wall": "16"}
+
+ DBG # old target shape torch.Size([8, 367])
+
+ DBG # old target shape torch.Size([8, 362])
+
+ DBG # old target shape torch.Size([8, 369])
+
+ DBG # old target shape torch.Size([8, 247])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 473])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 381])
+
+ DBG # old target shape torch.Size([8, 423])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 309])
+
+ DBG # old target shape torch.Size([8, 304])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 474])
+
+ DBG # old target shape torch.Size([8, 264])
+
+ DBG # old target shape torch.Size([8, 416])
+
+ DBG # old target shape torch.Size([8, 370])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 251])
+
+ DBG # old target shape torch.Size([8, 239])
+
+ DBG # old target shape torch.Size([8, 339])
+
+ DBG # old target shape torch.Size([8, 184])
+
+ DBG # old target shape torch.Size([8, 294])
+
+ DBG # old target shape torch.Size([8, 274])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 509])
+
+ DBG # old target shape torch.Size([8, 243])
+
+ DBG # old target shape torch.Size([8, 297])
+
+ DBG # old target shape torch.Size([8, 416])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 308])
+
+ DBG # old target shape torch.Size([8, 470])
+
+ DBG # old target shape torch.Size([8, 505])
+
+ DBG # old target shape torch.Size([8, 389])
+
+ DBG # old target shape torch.Size([8, 383])
+
+ DBG # old target shape torch.Size([8, 465])
+
+ DBG # old target shape torch.Size([8, 250])
+2023-09-26 12:37:45 | INFO | train_inner | {"epoch": 2, "update": 1.27, "loss": "2.283", "nll_loss": "2.27", "precision": "55.6", "recall": "11.9", "F1": "19.5", "accuracy": "53", "wps": "63365.2", "ups": "11.48", "wpb": "5520.7", "bsz": "5488.7", "num_updates": "110", "lr": "9.98305e-06", "gnorm": "2.354", "loss_scale": "16", "train_wall": "1", "wall": "17"}
+
+ DBG # old target shape torch.Size([8, 161])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 365])
+
+ DBG # old target shape torch.Size([8, 379])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 321])
+
+ DBG # old target shape torch.Size([8, 205])
+
+ DBG # old target shape torch.Size([8, 202])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 349])
+
+ DBG # old target shape torch.Size([8, 226])
+
+ DBG # old target shape torch.Size([8, 503])
+
+ DBG # old target shape torch.Size([8, 335])
+
+ DBG # old target shape torch.Size([8, 232])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 429])
+
+ DBG # old target shape torch.Size([8, 351])
+
+ DBG # old target shape torch.Size([8, 341])
+
+ DBG # old target shape torch.Size([8, 419])
+
+ DBG # old target shape torch.Size([8, 470])
+
+ DBG # old target shape torch.Size([8, 499])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 396])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 268])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 256])
+
+ DBG # old target shape torch.Size([8, 146])
+
+ DBG # old target shape torch.Size([8, 160])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 501])
+
+ DBG # old target shape torch.Size([8, 387])
+
+ DBG # old target shape torch.Size([8, 240])
+
+ DBG # old target shape torch.Size([8, 441])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 480])
+
+ DBG # old target shape torch.Size([8, 205])
+
+ DBG # old target shape torch.Size([8, 414])
+2023-09-26 12:37:46 | INFO | train_inner | {"epoch": 2, "update": 1.382, "loss": "2.202", "nll_loss": "2.19", "precision": "54.2", "recall": "10.2", "F1": "17.1", "accuracy": "53.7", "wps": "62753.9", "ups": "11.48", "wpb": "5466.6", "bsz": "5434.6", "num_updates": "120", "lr": "9.9661e-06", "gnorm": "2.204", "loss_scale": "16", "train_wall": "1", "wall": "18"}
+
+ DBG # old target shape torch.Size([8, 250])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 210])
+
+ DBG # old target shape torch.Size([8, 373])
+
+ DBG # old target shape torch.Size([8, 332])
+
+ DBG # old target shape torch.Size([8, 268])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 485])
+
+ DBG # old target shape torch.Size([8, 320])
+
+ DBG # old target shape torch.Size([8, 420])
+
+ DBG # old target shape torch.Size([8, 401])
+
+ DBG # old target shape torch.Size([8, 249])
+
+ DBG # old target shape torch.Size([8, 390])
+
+ DBG # old target shape torch.Size([8, 488])
+
+ DBG # old target shape torch.Size([8, 503])
+
+ DBG # old target shape torch.Size([8, 438])
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 385])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 428])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 242])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 337])
+
+ DBG # old target shape torch.Size([8, 384])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 290])
+
+ DBG # old target shape torch.Size([8, 317])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 337])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 343])
+
+ DBG # old target shape torch.Size([8, 310])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 241])
+
+ DBG # old target shape torch.Size([8, 307])
+2023-09-26 12:37:47 | INFO | train_inner | {"epoch": 2, "update": 1.494, "loss": "2.083", "nll_loss": "2.071", "precision": "56.5", "recall": "27.8", "F1": "36.5", "accuracy": "60.1", "wps": "62128.3", "ups": "11.02", "wpb": "5637.4", "bsz": "5605.4", "num_updates": "130", "lr": "9.94915e-06", "gnorm": "2.199", "loss_scale": "16", "train_wall": "1", "wall": "18"}
+
+ DBG # old target shape torch.Size([8, 277])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 171])
+
+ DBG # old target shape torch.Size([8, 315])
+
+ DBG # old target shape torch.Size([8, 402])
+
+ DBG # old target shape torch.Size([8, 324])
+
+ DBG # old target shape torch.Size([8, 235])
+
+ DBG # old target shape torch.Size([8, 257])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 330])
+
+ DBG # old target shape torch.Size([8, 345])
+
+ DBG # old target shape torch.Size([8, 441])
+
+ DBG # old target shape torch.Size([8, 384])
+
+ DBG # old target shape torch.Size([8, 401])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 279])
+
+ DBG # old target shape torch.Size([8, 457])
+
+ DBG # old target shape torch.Size([8, 302])
+
+ DBG # old target shape torch.Size([8, 395])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 366])
+
+ DBG # old target shape torch.Size([8, 491])
+
+ DBG # old target shape torch.Size([8, 314])
+
+ DBG # old target shape torch.Size([8, 343])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 454])
+
+ DBG # old target shape torch.Size([8, 293])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 272])
+
+ DBG # old target shape torch.Size([8, 468])
+
+ DBG # old target shape torch.Size([8, 476])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 284])
+
+ DBG # old target shape torch.Size([8, 190])
+2023-09-26 12:37:48 | INFO | train_inner | {"epoch": 2, "update": 1.607, "loss": "2.057", "nll_loss": "2.046", "precision": "48.5", "recall": "25.9", "F1": "33.6", "accuracy": "60.2", "wps": "62960.7", "ups": "11.14", "wpb": "5651.4", "bsz": "5619.4", "num_updates": "140", "lr": "9.9322e-06", "gnorm": "2.096", "loss_scale": "16", "train_wall": "1", "wall": "19"}
+
+ DBG # old target shape torch.Size([8, 165])
+
+ DBG # old target shape torch.Size([8, 314])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 208])
+
+ DBG # old target shape torch.Size([8, 264])
+
+ DBG # old target shape torch.Size([8, 287])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 297])
+
+ DBG # old target shape torch.Size([8, 240])
+
+ DBG # old target shape torch.Size([8, 224])
+
+ DBG # old target shape torch.Size([8, 229])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 318])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 310])
+
+ DBG # old target shape torch.Size([8, 209])
+
+ DBG # old target shape torch.Size([8, 302])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 294])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 482])
+
+ DBG # old target shape torch.Size([8, 280])
+
+ DBG # old target shape torch.Size([8, 426])
+
+ DBG # old target shape torch.Size([8, 197])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 387])
+
+ DBG # old target shape torch.Size([8, 329])
+
+ DBG # old target shape torch.Size([8, 322])
+
+ DBG # old target shape torch.Size([8, 485])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 495])
+
+ DBG # old target shape torch.Size([8, 235])
+
+ DBG # old target shape torch.Size([8, 286])
+
+ DBG # old target shape torch.Size([8, 290])
+
+ DBG # old target shape torch.Size([8, 443])
+
+ DBG # old target shape torch.Size([8, 262])
+2023-09-26 12:37:49 | INFO | train_inner | {"epoch": 2, "update": 1.719, "loss": "1.888", "nll_loss": "1.877", "precision": "53.2", "recall": "36.8", "F1": "43.5", "accuracy": "63.6", "wps": "63654.3", "ups": "12.33", "wpb": "5163.1", "bsz": "5131.1", "num_updates": "150", "lr": "9.91525e-06", "gnorm": "2.194", "loss_scale": "16", "train_wall": "1", "wall": "20"}
+
+ DBG # old target shape torch.Size([8, 177])
+
+ DBG # old target shape torch.Size([8, 367])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 463])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 357])
+
+ DBG # old target shape torch.Size([8, 278])
+
+ DBG # old target shape torch.Size([8, 456])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 326])
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 394])
+
+ DBG # old target shape torch.Size([8, 434])
+
+ DBG # old target shape torch.Size([8, 500])
+
+ DBG # old target shape torch.Size([8, 258])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 320])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 348])
+
+ DBG # old target shape torch.Size([8, 352])
+
+ DBG # old target shape torch.Size([8, 427])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 190])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 498])
+
+ DBG # old target shape torch.Size([8, 468])
+
+ DBG # old target shape torch.Size([8, 292])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 330])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 412])
+
+ DBG # old target shape torch.Size([8, 471])
+
+ DBG # old target shape torch.Size([8, 426])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 371])
+2023-09-26 12:37:50 | INFO | train_inner | {"epoch": 2, "update": 1.831, "loss": "1.8", "nll_loss": "1.79", "precision": "56.4", "recall": "41.2", "F1": "47.4", "accuracy": "65.5", "wps": "57047.1", "ups": "10.21", "wpb": "5587.3", "bsz": "5555.3", "num_updates": "160", "lr": "9.89831e-06", "gnorm": "2.231", "loss_scale": "16", "train_wall": "1", "wall": "21"}
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 464])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 373])
+
+ DBG # old target shape torch.Size([8, 496])
+
+ DBG # old target shape torch.Size([8, 219])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 486])
+
+ DBG # old target shape torch.Size([8, 289])
+
+ DBG # old target shape torch.Size([8, 172])
+
+ DBG # old target shape torch.Size([8, 344])
+
+ DBG # old target shape torch.Size([8, 396])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 200])
+
+ DBG # old target shape torch.Size([8, 376])
+
+ DBG # old target shape torch.Size([8, 298])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 325])
+
+ DBG # old target shape torch.Size([8, 262])
+
+ DBG # old target shape torch.Size([8, 212])
+
+ DBG # old target shape torch.Size([8, 441])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 208])
+
+ DBG # old target shape torch.Size([8, 308])
+
+ DBG # old target shape torch.Size([8, 148])
+
+ DBG # old target shape torch.Size([8, 353])
+
+ DBG # old target shape torch.Size([8, 488])
+
+ DBG # old target shape torch.Size([8, 278])
+
+ DBG # old target shape torch.Size([4, 355])
+
+ DBG # old target shape torch.Size([8, 274])
+
+ DBG # old target shape torch.Size([8, 368])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 333])
+2023-09-26 12:37:51 | INFO | train_inner | {"epoch": 2, "update": 1.944, "loss": "1.767", "nll_loss": "1.757", "precision": "56.4", "recall": "42.1", "F1": "48.1", "accuracy": "66.2", "wps": "63106.8", "ups": "11.61", "wpb": "5434.3", "bsz": "5402.7", "num_updates": "170", "lr": "9.88136e-06", "gnorm": "1.979", "loss_scale": "16", "train_wall": "1", "wall": "22"}
+
+ DBG # old target shape torch.Size([8, 327])
+
+ DBG # old target shape torch.Size([8, 261])
+
+ DBG # old target shape torch.Size([8, 277])
+
+ DBG # old target shape torch.Size([8, 483])
+
+ DBG # old target shape torch.Size([8, 224])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 356])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 361])
+
+ DBG # old target shape torch.Size([8, 243])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 383])
+
+ DBG # old target shape torch.Size([8, 410])
+
+ DBG # old target shape torch.Size([8, 267])
+
+ DBG # old target shape torch.Size([8, 444])
+2023-09-26 12:37:51 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2023-09-26 12:37:52 | INFO | valid | {"epoch": 2, "valid_loss": "1.617", "valid_nll_loss": "1.607", "valid_precision": "58.4", "valid_recall": "48.3", "valid_F1": "52.6", "valid_accuracy": "69.3", "valid_wps": "189850", "valid_wpb": "1340.4", "valid_bsz": "1332.5", "valid_num_updates": "175", "valid_best_accuracy": "69.3"}
+2023-09-26 12:37:52 | INFO | fairseq_cli.train | begin save checkpoint
+2023-09-26 12:37:56 | INFO | fairseq.checkpoint_utils | saved checkpoint /home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt (epoch 2 @ 175 updates, score 69.3) (writing took 4.646077547999084 seconds)
+2023-09-26 12:37:56 | INFO | fairseq_cli.train | end of epoch 2 (average epoch stats below)
+2023-09-26 12:37:56 | INFO | train | {"epoch": 2, "train_loss": "2.064", "train_nll_loss": "2.052", "train_precision": "56", "train_recall": "25.1", "train_F1": "31.4", "train_accuracy": "59", "train_wps": "36829.9", "train_ups": "6.73", "train_wpb": "5473.9", "train_bsz": "5442.1", "train_num_updates": "175", "train_lr": "9.87288e-06", "train_gnorm": "2.256", "train_loss_scale": "16", "train_train_wall": "8", "train_wall": "28"}
+2023-09-26 12:37:56 | INFO | fairseq.trainer | begin training epoch 3
+ DBG  <fairseq.logging.progress_bar.JsonProgressBar object at 0x7ff6b351ac40>
+
+ DBG # old target shape torch.Size([8, 395])
+
+ DBG # old target shape torch.Size([8, 171])
+
+ DBG # old target shape torch.Size([8, 438])
+
+ DBG # old target shape torch.Size([8, 293])
+
+ DBG # old target shape torch.Size([8, 333])
+
+ DBG # old target shape torch.Size([8, 373])
+
+ DBG # old target shape torch.Size([8, 264])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 471])
+
+ DBG # old target shape torch.Size([8, 327])
+
+ DBG # old target shape torch.Size([8, 508])
+
+ DBG # old target shape torch.Size([8, 304])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 315])
+
+ DBG # old target shape torch.Size([8, 205])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 190])
+
+ DBG # old target shape torch.Size([8, 497])
+
+ DBG # old target shape torch.Size([8, 480])
+
+ DBG # old target shape torch.Size([8, 387])
+2023-09-26 12:37:57 | INFO | train_inner | {"epoch": 3, "update": 2.056, "loss": "1.659", "nll_loss": "1.649", "precision": "60.8", "recall": "49.3", "F1": "54.5", "accuracy": "69.5", "wps": "8134.2", "ups": "1.59", "wpb": "5100.3", "bsz": "5069.9", "num_updates": "180", "lr": "9.86441e-06", "gnorm": "1.891", "loss_scale": "16", "train_wall": "1", "wall": "28"}
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 258])
+
+ DBG # old target shape torch.Size([8, 384])
+
+ DBG # old target shape torch.Size([8, 332])
+
+ DBG # old target shape torch.Size([8, 454])
+
+ DBG # old target shape torch.Size([8, 452])
+
+ DBG # old target shape torch.Size([8, 509])
+
+ DBG # old target shape torch.Size([8, 249])
+
+ DBG # old target shape torch.Size([8, 349])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 385])
+
+ DBG # old target shape torch.Size([8, 491])
+
+ DBG # old target shape torch.Size([8, 420])
+
+ DBG # old target shape torch.Size([8, 390])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 503])
+
+ DBG # old target shape torch.Size([8, 468])
+
+ DBG # old target shape torch.Size([8, 261])
+
+ DBG # old target shape torch.Size([8, 401])
+
+ DBG # old target shape torch.Size([8, 476])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 376])
+
+ DBG # old target shape torch.Size([8, 351])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 429])
+
+ DBG # old target shape torch.Size([8, 385])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 367])
+
+ DBG # old target shape torch.Size([8, 172])
+
+ DBG # old target shape torch.Size([8, 330])
+
+ DBG # old target shape torch.Size([8, 251])
+
+ DBG # old target shape torch.Size([8, 326])
+
+ DBG # old target shape torch.Size([8, 464])
+
+ DBG # old target shape torch.Size([8, 320])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 202])
+
+ DBG # old target shape torch.Size([8, 378])
+2023-09-26 12:37:58 | INFO | train_inner | {"epoch": 3, "update": 2.169, "loss": "1.594", "nll_loss": "1.585", "precision": "60.3", "recall": "48.9", "F1": "54", "accuracy": "70.4", "wps": "63539.2", "ups": "10.74", "wpb": "5918.4", "bsz": "5886.4", "num_updates": "190", "lr": "9.84746e-06", "gnorm": "1.92", "loss_scale": "16", "train_wall": "1", "wall": "29"}
+
+ DBG # old target shape torch.Size([8, 423])
+
+ DBG # old target shape torch.Size([8, 383])
+
+ DBG # old target shape torch.Size([8, 376])
+
+ DBG # old target shape torch.Size([8, 428])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 356])
+
+ DBG # old target shape torch.Size([8, 330])
+
+ DBG # old target shape torch.Size([8, 148])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 486])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 235])
+
+ DBG # old target shape torch.Size([8, 298])
+
+ DBG # old target shape torch.Size([8, 243])
+
+ DBG # old target shape torch.Size([8, 280])
+
+ DBG # old target shape torch.Size([8, 274])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 250])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 209])
+
+ DBG # old target shape torch.Size([8, 257])
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 505])
+
+ DBG # old target shape torch.Size([8, 443])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 465])
+
+ DBG # old target shape torch.Size([8, 426])
+
+ DBG # old target shape torch.Size([4, 355])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 287])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 441])
+
+ DBG # old target shape torch.Size([8, 453])
+2023-09-26 12:37:59 | INFO | train_inner | {"epoch": 3, "update": 2.281, "loss": "1.5", "nll_loss": "1.491", "precision": "63.7", "recall": "51.5", "F1": "56.9", "accuracy": "72.5", "wps": "58426.8", "ups": "11.08", "wpb": "5274.6", "bsz": "5243", "num_updates": "200", "lr": "9.83051e-06", "gnorm": "2.355", "loss_scale": "16", "train_wall": "1", "wall": "30"}
+
+ DBG # old target shape torch.Size([8, 384])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 232])
+
+ DBG # old target shape torch.Size([8, 235])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 501])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 314])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 243])
+
+ DBG # old target shape torch.Size([8, 185])
+
+ DBG # old target shape torch.Size([8, 184])
+
+ DBG # old target shape torch.Size([8, 412])
+
+ DBG # old target shape torch.Size([8, 309])
+
+ DBG # old target shape torch.Size([8, 426])
+
+ DBG # old target shape torch.Size([8, 219])
+
+ DBG # old target shape torch.Size([8, 476])
+
+ DBG # old target shape torch.Size([8, 256])
+
+ DBG # old target shape torch.Size([8, 419])
+
+ DBG # old target shape torch.Size([8, 302])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 381])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 267])
+
+ DBG # old target shape torch.Size([8, 279])
+
+ DBG # old target shape torch.Size([8, 441])
+
+ DBG # old target shape torch.Size([8, 496])
+
+ DBG # old target shape torch.Size([8, 362])
+
+ DBG # old target shape torch.Size([8, 485])
+
+ DBG # old target shape torch.Size([8, 338])
+
+ DBG # old target shape torch.Size([8, 390])
+
+ DBG # old target shape torch.Size([8, 344])
+
+ DBG # old target shape torch.Size([8, 241])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 277])
+
+ DBG # old target shape torch.Size([8, 400])
+
+ DBG # old target shape torch.Size([8, 346])
+
+ DBG # old target shape torch.Size([8, 377])
+2023-09-26 12:38:00 | INFO | train_inner | {"epoch": 3, "update": 2.393, "loss": "1.376", "nll_loss": "1.368", "precision": "65.3", "recall": "56", "F1": "60.2", "accuracy": "75", "wps": "64093.4", "ups": "11.68", "wpb": "5485.3", "bsz": "5453.3", "num_updates": "210", "lr": "9.81356e-06", "gnorm": "2.347", "loss_scale": "16", "train_wall": "1", "wall": "31"}
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 495])
+
+ DBG # old target shape torch.Size([8, 289])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 499])
+
+ DBG # old target shape torch.Size([8, 470])
+
+ DBG # old target shape torch.Size([8, 329])
+
+ DBG # old target shape torch.Size([8, 287])
+
+ DBG # old target shape torch.Size([8, 403])
+
+ DBG # old target shape torch.Size([8, 262])
+
+ DBG # old target shape torch.Size([8, 337])
+
+ DBG # old target shape torch.Size([8, 322])
+
+ DBG # old target shape torch.Size([8, 177])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 367])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 325])
+
+ DBG # old target shape torch.Size([8, 373])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 365])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 427])
+
+ DBG # old target shape torch.Size([8, 290])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 500])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 240])
+
+ DBG # old target shape torch.Size([8, 284])
+
+ DBG # old target shape torch.Size([8, 482])
+
+ DBG # old target shape torch.Size([8, 332])
+
+ DBG # old target shape torch.Size([8, 317])
+
+ DBG # old target shape torch.Size([8, 160])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 503])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 280])
+
+ DBG # old target shape torch.Size([8, 146])
+
+ DBG # old target shape torch.Size([8, 273])
+2023-09-26 12:38:01 | INFO | train_inner | {"epoch": 3, "update": 2.506, "loss": "1.353", "nll_loss": "1.345", "precision": "66.6", "recall": "58.2", "F1": "62.1", "accuracy": "76.4", "wps": "61983.7", "ups": "11.06", "wpb": "5602", "bsz": "5570", "num_updates": "220", "lr": "9.79661e-06", "gnorm": "2.297", "loss_scale": "16", "train_wall": "1", "wall": "32"}
+
+ DBG # old target shape torch.Size([8, 341])
+
+ DBG # old target shape torch.Size([8, 297])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 278])
+
+ DBG # old target shape torch.Size([8, 292])
+
+ DBG # old target shape torch.Size([8, 229])
+
+ DBG # old target shape torch.Size([8, 294])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 324])
+
+ DBG # old target shape torch.Size([8, 345])
+
+ DBG # old target shape torch.Size([8, 190])
+
+ DBG # old target shape torch.Size([8, 383])
+
+ DBG # old target shape torch.Size([8, 212])
+
+ DBG # old target shape torch.Size([8, 184])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 161])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 444])
+
+ DBG # old target shape torch.Size([8, 224])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 294])
+
+ DBG # old target shape torch.Size([8, 299])
+
+ DBG # old target shape torch.Size([8, 250])
+
+ DBG # old target shape torch.Size([8, 463])
+
+ DBG # old target shape torch.Size([8, 396])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 310])
+
+ DBG # old target shape torch.Size([8, 297])
+
+ DBG # old target shape torch.Size([8, 369])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 278])
+
+ DBG # old target shape torch.Size([8, 488])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 316])
+2023-09-26 12:38:01 | INFO | train_inner | {"epoch": 3, "update": 2.618, "loss": "1.114", "nll_loss": "1.107", "precision": "70.9", "recall": "65.5", "F1": "68.1", "accuracy": "80.8", "wps": "62706.1", "ups": "11.65", "wpb": "5381.6", "bsz": "5349.6", "num_updates": "230", "lr": "9.77966e-06", "gnorm": "2.134", "loss_scale": "16", "train_wall": "1", "wall": "33"}
+
+ DBG # old target shape torch.Size([8, 242])
+
+ DBG # old target shape torch.Size([8, 205])
+
+ DBG # old target shape torch.Size([8, 302])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 343])
+
+ DBG # old target shape torch.Size([8, 488])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 434])
+
+ DBG # old target shape torch.Size([8, 200])
+
+ DBG # old target shape torch.Size([8, 389])
+
+ DBG # old target shape torch.Size([8, 259])
+
+ DBG # old target shape torch.Size([8, 321])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 258])
+
+ DBG # old target shape torch.Size([8, 210])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 348])
+
+ DBG # old target shape torch.Size([8, 318])
+
+ DBG # old target shape torch.Size([8, 290])
+
+ DBG # old target shape torch.Size([8, 368])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 272])
+
+ DBG # old target shape torch.Size([8, 402])
+
+ DBG # old target shape torch.Size([8, 208])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 396])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 286])
+
+ DBG # old target shape torch.Size([8, 165])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 361])
+
+ DBG # old target shape torch.Size([8, 224])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 395])
+
+ DBG # old target shape torch.Size([8, 339])
+2023-09-26 12:38:02 | INFO | train_inner | {"epoch": 3, "update": 2.73, "loss": "1.145", "nll_loss": "1.138", "precision": "69.2", "recall": "65.5", "F1": "67.3", "accuracy": "81.6", "wps": "64175.6", "ups": "12.19", "wpb": "5262.8", "bsz": "5230.8", "num_updates": "240", "lr": "9.76271e-06", "gnorm": "1.983", "loss_scale": "16", "train_wall": "1", "wall": "34"}
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 353])
+
+ DBG # old target shape torch.Size([8, 469])
+
+ DBG # old target shape torch.Size([8, 314])
+
+ DBG # old target shape torch.Size([8, 416])
+
+ DBG # old target shape torch.Size([8, 483])
+
+ DBG # old target shape torch.Size([8, 434])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 379])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 414])
+
+ DBG # old target shape torch.Size([8, 239])
+
+ DBG # old target shape torch.Size([8, 410])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 498])
+
+ DBG # old target shape torch.Size([8, 320])
+
+ DBG # old target shape torch.Size([8, 461])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 274])
+
+ DBG # old target shape torch.Size([8, 400])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 262])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 366])
+
+ DBG # old target shape torch.Size([8, 272])
+
+ DBG # old target shape torch.Size([8, 207])
+
+ DBG # old target shape torch.Size([8, 370])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 468])
+
+ DBG # old target shape torch.Size([8, 456])
+
+ DBG # old target shape torch.Size([8, 208])
+
+ DBG # old target shape torch.Size([8, 313])
+
+ DBG # old target shape torch.Size([8, 264])
+
+ DBG # old target shape torch.Size([8, 439])
+2023-09-26 12:38:03 | INFO | train_inner | {"epoch": 3, "update": 2.843, "loss": "0.966", "nll_loss": "0.961", "precision": "73.2", "recall": "70.6", "F1": "71.8", "accuracy": "84.4", "wps": "60340.1", "ups": "10.67", "wpb": "5655.8", "bsz": "5623.8", "num_updates": "250", "lr": "9.74576e-06", "gnorm": "1.923", "loss_scale": "16", "train_wall": "1", "wall": "35"}
+
+ DBG # old target shape torch.Size([8, 474])
+
+ DBG # old target shape torch.Size([8, 310])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 247])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 357])
+
+ DBG # old target shape torch.Size([8, 387])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 335])
+
+ DBG # old target shape torch.Size([8, 308])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 176])
+
+ DBG # old target shape torch.Size([8, 240])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 311])
+
+ DBG # old target shape torch.Size([8, 197])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 268])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 226])
+
+ DBG # old target shape torch.Size([8, 473])
+
+ DBG # old target shape torch.Size([8, 277])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 416])
+
+ DBG # old target shape torch.Size([8, 308])
+
+ DBG # old target shape torch.Size([8, 268])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 236])
+
+ DBG # old target shape torch.Size([8, 457])
+
+ DBG # old target shape torch.Size([8, 343])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 325])
+
+ DBG # old target shape torch.Size([8, 394])
+
+ DBG # old target shape torch.Size([8, 309])
+2023-09-26 12:38:04 | INFO | train_inner | {"epoch": 3, "update": 2.955, "loss": "1.01", "nll_loss": "1.005", "precision": "70.6", "recall": "68.4", "F1": "69.5", "accuracy": "83.4", "wps": "63927.4", "ups": "11.57", "wpb": "5523.5", "bsz": "5491.5", "num_updates": "260", "lr": "9.72881e-06", "gnorm": "2.014", "loss_scale": "16", "train_wall": "1", "wall": "35"}
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 352])
+
+ DBG # old target shape torch.Size([8, 401])
+
+ DBG # old target shape torch.Size([8, 283])
+
+ DBG # old target shape torch.Size([8, 470])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 441])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 304])
+
+ DBG # old target shape torch.Size([8, 345])
+
+ DBG # old target shape torch.Size([8, 337])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 485])
+2023-09-26 12:38:04 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2023-09-26 12:38:05 | INFO | valid | {"epoch": 3, "valid_loss": "0.829", "valid_nll_loss": "0.824", "valid_precision": "76.3", "valid_recall": "76.3", "valid_F1": "76.3", "valid_accuracy": "87.3", "valid_wps": "191070", "valid_wpb": "1340.4", "valid_bsz": "1332.5", "valid_num_updates": "264", "valid_best_accuracy": "87.3"}
+2023-09-26 12:38:05 | INFO | fairseq_cli.train | begin save checkpoint
+2023-09-26 12:38:45 | INFO | fairseq.checkpoint_utils | saved checkpoint /home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt (epoch 3 @ 264 updates, score 87.3) (writing took 40.10445587899994 seconds)
+2023-09-26 12:38:45 | INFO | fairseq_cli.train | end of epoch 3 (average epoch stats below)
+2023-09-26 12:38:45 | INFO | train | {"epoch": 3, "train_loss": "1.271", "train_nll_loss": "1.264", "train_precision": "67.2", "train_recall": "60.3", "train_F1": "63.4", "train_accuracy": "77.8", "train_wps": "10000.9", "train_ups": "1.83", "train_wpb": "5473.9", "train_bsz": "5442.1", "train_num_updates": "264", "train_lr": "9.72203e-06", "train_gnorm": "2.107", "train_loss_scale": "16", "train_train_wall": "8", "train_wall": "76"}
+2023-09-26 12:38:45 | INFO | fairseq.trainer | begin training epoch 4
+ DBG  <fairseq.logging.progress_bar.JsonProgressBar object at 0x7ff6b0c32c40>
+
+ DBG # old target shape torch.Size([8, 224])
+
+ DBG # old target shape torch.Size([8, 207])
+
+ DBG # old target shape torch.Size([8, 390])
+
+ DBG # old target shape torch.Size([8, 387])
+
+ DBG # old target shape torch.Size([8, 308])
+
+ DBG # old target shape torch.Size([8, 184])
+
+ DBG # old target shape torch.Size([8, 464])
+
+ DBG # old target shape torch.Size([8, 278])
+
+ DBG # old target shape torch.Size([8, 365])
+
+ DBG # old target shape torch.Size([8, 278])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 361])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 396])
+
+ DBG # old target shape torch.Size([8, 290])
+
+ DBG # old target shape torch.Size([8, 396])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 268])
+
+ DBG # old target shape torch.Size([8, 427])
+
+ DBG # old target shape torch.Size([8, 190])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 470])
+
+ DBG # old target shape torch.Size([8, 304])
+2023-09-26 12:38:46 | INFO | train_inner | {"epoch": 4, "update": 3.067, "loss": "0.901", "nll_loss": "0.896", "precision": "74.9", "recall": "73.3", "F1": "74.1", "accuracy": "85.6", "wps": "1217.5", "ups": "0.24", "wpb": "5078", "bsz": "5047.6", "num_updates": "270", "lr": "9.71186e-06", "gnorm": "1.908", "loss_scale": "16", "train_wall": "1", "wall": "77"}
+
+ DBG # old target shape torch.Size([8, 274])
+
+ DBG # old target shape torch.Size([8, 277])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 468])
+
+ DBG # old target shape torch.Size([8, 345])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 184])
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 324])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 509])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 311])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 330])
+
+ DBG # old target shape torch.Size([8, 457])
+
+ DBG # old target shape torch.Size([8, 387])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 384])
+
+ DBG # old target shape torch.Size([8, 224])
+
+ DBG # old target shape torch.Size([8, 262])
+
+ DBG # old target shape torch.Size([8, 339])
+
+ DBG # old target shape torch.Size([8, 367])
+
+ DBG # old target shape torch.Size([8, 390])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 256])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 249])
+
+ DBG # old target shape torch.Size([8, 367])
+
+ DBG # old target shape torch.Size([8, 452])
+
+ DBG # old target shape torch.Size([8, 236])
+
+ DBG # old target shape torch.Size([8, 325])
+
+ DBG # old target shape torch.Size([8, 289])
+
+ DBG # old target shape torch.Size([8, 384])
+
+ DBG # old target shape torch.Size([8, 294])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 379])
+2023-09-26 12:38:47 | INFO | train_inner | {"epoch": 4, "update": 3.18, "loss": "0.887", "nll_loss": "0.882", "precision": "74.6", "recall": "72.8", "F1": "73.7", "accuracy": "85.7", "wps": "60292.6", "ups": "10.68", "wpb": "5646.1", "bsz": "5614.1", "num_updates": "280", "lr": "9.69492e-06", "gnorm": "2.108", "loss_scale": "16", "train_wall": "1", "wall": "78"}
+
+ DBG # old target shape torch.Size([8, 326])
+
+ DBG # old target shape torch.Size([8, 302])
+
+ DBG # old target shape torch.Size([8, 503])
+
+ DBG # old target shape torch.Size([8, 310])
+
+ DBG # old target shape torch.Size([8, 235])
+
+ DBG # old target shape torch.Size([8, 434])
+
+ DBG # old target shape torch.Size([8, 401])
+
+ DBG # old target shape torch.Size([8, 258])
+
+ DBG # old target shape torch.Size([8, 148])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 403])
+
+ DBG # old target shape torch.Size([8, 389])
+
+ DBG # old target shape torch.Size([8, 480])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 474])
+
+ DBG # old target shape torch.Size([8, 419])
+
+ DBG # old target shape torch.Size([8, 332])
+
+ DBG # old target shape torch.Size([8, 412])
+
+ DBG # old target shape torch.Size([8, 483])
+
+ DBG # old target shape torch.Size([8, 414])
+
+ DBG # old target shape torch.Size([8, 200])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 476])
+
+ DBG # old target shape torch.Size([8, 428])
+
+ DBG # old target shape torch.Size([8, 304])
+
+ DBG # old target shape torch.Size([8, 243])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 210])
+
+ DBG # old target shape torch.Size([8, 298])
+
+ DBG # old target shape torch.Size([8, 343])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 505])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 205])
+
+ DBG # old target shape torch.Size([8, 470])
+2023-09-26 12:38:48 | INFO | train_inner | {"epoch": 4, "update": 3.292, "loss": "0.859", "nll_loss": "0.854", "precision": "76.9", "recall": "75.5", "F1": "76.2", "accuracy": "87", "wps": "62352.7", "ups": "10.56", "wpb": "5907.2", "bsz": "5875.2", "num_updates": "290", "lr": "9.67797e-06", "gnorm": "1.966", "loss_scale": "16", "train_wall": "1", "wall": "79"}
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 314])
+
+ DBG # old target shape torch.Size([8, 202])
+
+ DBG # old target shape torch.Size([8, 190])
+
+ DBG # old target shape torch.Size([8, 250])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 394])
+
+ DBG # old target shape torch.Size([8, 332])
+
+ DBG # old target shape torch.Size([8, 376])
+
+ DBG # old target shape torch.Size([8, 272])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 373])
+
+ DBG # old target shape torch.Size([8, 454])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 219])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 318])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 251])
+
+ DBG # old target shape torch.Size([8, 376])
+
+ DBG # old target shape torch.Size([8, 482])
+
+ DBG # old target shape torch.Size([8, 264])
+
+ DBG # old target shape torch.Size([8, 279])
+
+ DBG # old target shape torch.Size([8, 429])
+
+ DBG # old target shape torch.Size([8, 274])
+
+ DBG # old target shape torch.Size([8, 146])
+
+ DBG # old target shape torch.Size([8, 293])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 473])
+
+ DBG # old target shape torch.Size([8, 272])
+
+ DBG # old target shape torch.Size([8, 292])
+
+ DBG # old target shape torch.Size([8, 185])
+
+ DBG # old target shape torch.Size([8, 456])
+
+ DBG # old target shape torch.Size([8, 287])
+
+ DBG # old target shape torch.Size([8, 356])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 299])
+
+ DBG # old target shape torch.Size([8, 244])
+2023-09-26 12:38:48 | INFO | train_inner | {"epoch": 4, "update": 3.404, "loss": "0.79", "nll_loss": "0.785", "precision": "78.7", "recall": "77.4", "F1": "78", "accuracy": "88", "wps": "60629", "ups": "11.99", "wpb": "5058.4", "bsz": "5026.4", "num_updates": "300", "lr": "9.66102e-06", "gnorm": "1.943", "loss_scale": "16", "train_wall": "1", "wall": "80"}
+
+ DBG # old target shape torch.Size([8, 229])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([4, 355])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 197])
+
+ DBG # old target shape torch.Size([8, 410])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 268])
+
+ DBG # old target shape torch.Size([8, 208])
+
+ DBG # old target shape torch.Size([8, 212])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 267])
+
+ DBG # old target shape torch.Size([8, 465])
+
+ DBG # old target shape torch.Size([8, 310])
+
+ DBG # old target shape torch.Size([8, 314])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 400])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 385])
+
+ DBG # old target shape torch.Size([8, 468])
+
+ DBG # old target shape torch.Size([8, 400])
+
+ DBG # old target shape torch.Size([8, 264])
+
+ DBG # old target shape torch.Size([8, 287])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 434])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 322])
+
+ DBG # old target shape torch.Size([8, 508])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 277])
+
+ DBG # old target shape torch.Size([8, 351])
+
+ DBG # old target shape torch.Size([8, 329])
+
+ DBG # old target shape torch.Size([8, 239])
+
+ DBG # old target shape torch.Size([8, 232])
+
+ DBG # old target shape torch.Size([8, 248])
+2023-09-26 12:38:49 | INFO | train_inner | {"epoch": 4, "update": 3.517, "loss": "0.725", "nll_loss": "0.72", "precision": "78.5", "recall": "77", "F1": "77.8", "accuracy": "88", "wps": "62256.6", "ups": "11.5", "wpb": "5411.5", "bsz": "5379.9", "num_updates": "310", "lr": "9.64407e-06", "gnorm": "2.031", "loss_scale": "16", "train_wall": "1", "wall": "81"}
+
+ DBG # old target shape torch.Size([8, 373])
+
+ DBG # old target shape torch.Size([8, 438])
+
+ DBG # old target shape torch.Size([8, 171])
+
+ DBG # old target shape torch.Size([8, 327])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 345])
+
+ DBG # old target shape torch.Size([8, 368])
+
+ DBG # old target shape torch.Size([8, 253])
+
+ DBG # old target shape torch.Size([8, 290])
+
+ DBG # old target shape torch.Size([8, 247])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 320])
+
+ DBG # old target shape torch.Size([8, 297])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 498])
+
+ DBG # old target shape torch.Size([8, 333])
+
+ DBG # old target shape torch.Size([8, 443])
+
+ DBG # old target shape torch.Size([8, 341])
+
+ DBG # old target shape torch.Size([8, 416])
+
+ DBG # old target shape torch.Size([8, 444])
+
+ DBG # old target shape torch.Size([8, 262])
+
+ DBG # old target shape torch.Size([8, 495])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 335])
+
+ DBG # old target shape torch.Size([8, 172])
+
+ DBG # old target shape torch.Size([8, 208])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 362])
+
+ DBG # old target shape torch.Size([8, 325])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 353])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 209])
+
+ DBG # old target shape torch.Size([8, 337])
+
+ DBG # old target shape torch.Size([8, 286])
+
+ DBG # old target shape torch.Size([8, 242])
+2023-09-26 12:38:50 | INFO | train_inner | {"epoch": 4, "update": 3.629, "loss": "0.638", "nll_loss": "0.634", "precision": "82.3", "recall": "81.5", "F1": "81.9", "accuracy": "90.4", "wps": "62995.3", "ups": "11.8", "wpb": "5339.8", "bsz": "5307.8", "num_updates": "320", "lr": "9.62712e-06", "gnorm": "1.644", "loss_scale": "16", "train_wall": "1", "wall": "82"}
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 501])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 370])
+
+ DBG # old target shape torch.Size([8, 418])
+
+ DBG # old target shape torch.Size([8, 330])
+
+ DBG # old target shape torch.Size([8, 313])
+
+ DBG # old target shape torch.Size([8, 160])
+
+ DBG # old target shape torch.Size([8, 416])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 283])
+
+ DBG # old target shape torch.Size([8, 317])
+
+ DBG # old target shape torch.Size([8, 485])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 255])
+
+ DBG # old target shape torch.Size([8, 235])
+
+ DBG # old target shape torch.Size([8, 395])
+
+ DBG # old target shape torch.Size([8, 241])
+
+ DBG # old target shape torch.Size([8, 349])
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 476])
+
+ DBG # old target shape torch.Size([8, 395])
+
+ DBG # old target shape torch.Size([8, 244])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 240])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 243])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 226])
+
+ DBG # old target shape torch.Size([8, 385])
+
+ DBG # old target shape torch.Size([8, 357])
+
+ DBG # old target shape torch.Size([8, 280])
+
+ DBG # old target shape torch.Size([8, 497])
+
+ DBG # old target shape torch.Size([8, 284])
+
+ DBG # old target shape torch.Size([8, 491])
+
+ DBG # old target shape torch.Size([8, 259])
+
+ DBG # old target shape torch.Size([8, 496])
+2023-09-26 12:38:51 | INFO | train_inner | {"epoch": 4, "update": 3.742, "loss": "0.623", "nll_loss": "0.619", "precision": "83.3", "recall": "82.2", "F1": "82.8", "accuracy": "90.6", "wps": "64179.4", "ups": "11.7", "wpb": "5484.6", "bsz": "5452.6", "num_updates": "330", "lr": "9.61017e-06", "gnorm": "1.667", "loss_scale": "16", "train_wall": "1", "wall": "82"}
+
+ DBG # old target shape torch.Size([8, 315])
+
+ DBG # old target shape torch.Size([8, 381])
+
+ DBG # old target shape torch.Size([8, 258])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 369])
+
+ DBG # old target shape torch.Size([8, 348])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 405])
+
+ DBG # old target shape torch.Size([8, 303])
+
+ DBG # old target shape torch.Size([8, 346])
+
+ DBG # old target shape torch.Size([8, 426])
+
+ DBG # old target shape torch.Size([8, 296])
+
+ DBG # old target shape torch.Size([8, 388])
+
+ DBG # old target shape torch.Size([8, 309])
+
+ DBG # old target shape torch.Size([8, 402])
+
+ DBG # old target shape torch.Size([8, 366])
+
+ DBG # old target shape torch.Size([8, 420])
+
+ DBG # old target shape torch.Size([8, 337])
+
+ DBG # old target shape torch.Size([8, 205])
+
+ DBG # old target shape torch.Size([8, 407])
+
+ DBG # old target shape torch.Size([8, 453])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 426])
+
+ DBG # old target shape torch.Size([8, 463])
+
+ DBG # old target shape torch.Size([8, 461])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 486])
+
+ DBG # old target shape torch.Size([8, 371])
+
+ DBG # old target shape torch.Size([8, 500])
+
+ DBG # old target shape torch.Size([8, 471])
+
+ DBG # old target shape torch.Size([8, 462])
+
+ DBG # old target shape torch.Size([8, 338])
+
+ DBG # old target shape torch.Size([8, 499])
+
+ DBG # old target shape torch.Size([8, 342])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 309])
+
+ DBG # old target shape torch.Size([8, 240])
+
+ DBG # old target shape torch.Size([8, 377])
+
+ DBG # old target shape torch.Size([8, 320])
+2023-09-26 12:38:52 | INFO | train_inner | {"epoch": 4, "update": 3.854, "loss": "0.684", "nll_loss": "0.68", "precision": "78.7", "recall": "78", "F1": "78.3", "accuracy": "88.3", "wps": "57263", "ups": "9.73", "wpb": "5888.2", "bsz": "5856.2", "num_updates": "340", "lr": "9.59322e-06", "gnorm": "1.793", "loss_scale": "16", "train_wall": "1", "wall": "83"}
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 425])
+
+ DBG # old target shape torch.Size([8, 481])
+
+ DBG # old target shape torch.Size([8, 257])
+
+ DBG # old target shape torch.Size([8, 441])
+
+ DBG # old target shape torch.Size([8, 316])
+
+ DBG # old target shape torch.Size([8, 165])
+
+ DBG # old target shape torch.Size([8, 408])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 297])
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 261])
+
+ DBG # old target shape torch.Size([8, 380])
+
+ DBG # old target shape torch.Size([8, 285])
+
+ DBG # old target shape torch.Size([8, 343])
+
+ DBG # old target shape torch.Size([8, 401])
+
+ DBG # old target shape torch.Size([8, 436])
+
+ DBG # old target shape torch.Size([8, 383])
+
+ DBG # old target shape torch.Size([8, 441])
+
+ DBG # old target shape torch.Size([8, 294])
+
+ DBG # old target shape torch.Size([8, 383])
+
+ DBG # old target shape torch.Size([8, 503])
+
+ DBG # old target shape torch.Size([8, 307])
+
+ DBG # old target shape torch.Size([8, 302])
+
+ DBG # old target shape torch.Size([8, 485])
+
+ DBG # old target shape torch.Size([8, 280])
+
+ DBG # old target shape torch.Size([8, 250])
+
+ DBG # old target shape torch.Size([8, 248])
+
+ DBG # old target shape torch.Size([8, 393])
+
+ DBG # old target shape torch.Size([8, 308])
+
+ DBG # old target shape torch.Size([8, 321])
+
+ DBG # old target shape torch.Size([8, 273])
+
+ DBG # old target shape torch.Size([8, 409])
+
+ DBG # old target shape torch.Size([8, 352])
+
+ DBG # old target shape torch.Size([8, 469])
+
+ DBG # old target shape torch.Size([8, 306])
+
+ DBG # old target shape torch.Size([8, 344])
+
+ DBG # old target shape torch.Size([8, 423])
+
+ DBG # old target shape torch.Size([8, 488])
+2023-09-26 12:38:53 | INFO | train_inner | {"epoch": 4, "update": 3.966, "loss": "0.659", "nll_loss": "0.655", "precision": "80.9", "recall": "80", "F1": "80.5", "accuracy": "89.5", "wps": "59042.3", "ups": "10.86", "wpb": "5435", "bsz": "5403", "num_updates": "350", "lr": "9.57627e-06", "gnorm": "1.658", "loss_scale": "16", "train_wall": "1", "wall": "84"}
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 378])
+
+ DBG # old target shape torch.Size([8, 445])
+
+ DBG # old target shape torch.Size([8, 439])
+
+ DBG # old target shape torch.Size([8, 488])
+
+ DBG # old target shape torch.Size([8, 177])
+
+ DBG # old target shape torch.Size([8, 176])
+
+ DBG # old target shape torch.Size([8, 455])
+
+ DBG # old target shape torch.Size([8, 161])
+
+ DBG # old target shape torch.Size([8, 441])
+2023-09-26 12:38:53 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2023-09-26 12:38:54 | INFO | valid | {"epoch": 4, "valid_loss": "0.574", "valid_nll_loss": "0.571", "valid_precision": "83.3", "valid_recall": "83.1", "valid_F1": "83.2", "valid_accuracy": "91.1", "valid_wps": "189621", "valid_wpb": "1340.4", "valid_bsz": "1332.5", "valid_num_updates": "353", "valid_best_accuracy": "91.1"}
+2023-09-26 12:38:54 | INFO | fairseq_cli.train | begin save checkpoint
