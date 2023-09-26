@@ -42,7 +42,9 @@ class DataStructureMFCriterion(FairseqCriterion):
                 and self.classification_head_name in model.classification_heads
         ), 'model must provide sentence classification head for --criterion=sentence_prediction'
 
-        sample['target'] = sample['target'][:, list(sample['net_input']['src_tokens'][self.fields[-3]])[1]]
+        #TODO nahid hack
+        # sample['target'] = sample['target'][:, list(sample['net_input']['src_tokens'][self.fields[-3]])[1]]
+
         real_tokens = sample['target'].ne(self.task.label_dictionary.pad() - self.task.label_dictionary.nspecial)
 
         print("\n\n\n DBG  : ",sample['net_input']['src_tokens'][self.fields[-3]].shape  )

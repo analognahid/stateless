@@ -1,58 +1,38 @@
+DBG train:  Namespace(activation_dropout=0.0, activation_fn='gelu', adam_betas='(0.9,0.98)', adam_eps=1e-06, all_gather_list_size=16384, arch='roberta_mf_nau', attention_dropout=0.1, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_suffix='', classification_head_name='data_structure_head', clip_norm=0.0, cpu=False, criterion='data_structure_mf', curriculum=0, data='data-bin/finetune/x86-O0', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_num_procs=None, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.1, empty_cache_freq=0, encoder_attention_heads=12, encoder_embed_dim=768, encoder_ffn_embed_dim=3072, encoder_layerdrop=0, encoder_layers=8, encoder_layers_to_keep=None, end_learning_rate=0.0, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, localsgd_frequency=3, log_format='json', log_interval=10, lr=[1e-05], lr_scheduler='polynomial_decay', max_epoch=0, max_positions=512, max_sentences=8, max_sentences_valid=8, max_tokens=None, max_tokens_valid=None, max_update=6000, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=True, min_loss_scale=0.0001, min_lr=-1, model_parallel_size=1, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_seed_provided=True, no_shuffle=False, nprocs_per_node=1, num_classes=44, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=True, reset_lr_scheduler=False, reset_meters=True, reset_optimizer=True, restore_file='/home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt', save_dir='/home/raisul/stateformer/checkpoints/finetune_x86_O0/', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, sentence_avg=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, stop_time_hours=0, task='data_structure_mf', tensorboard_logdir='', threshold_loss_scale=None, tokenizer=None, total_num_update=6000, tpu=False, train_subset='train', update_freq=[4], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_updates=100, weight_decay=0.01, zero_sharding='none')
 
 
 
 DBG : here 1
-
-
-
-DBG : here 2
-
-
-
-DBG : here 3
-2023-09-25 12:16:58 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='gelu', adam_betas='(0.9,0.98)', adam_eps=1e-06, all_gather_list_size=16384, arch='roberta_mf_nau', attention_dropout=0.1, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_suffix='', classification_head_name='data_structure_head', clip_norm=0.0, cpu=False, criterion='data_structure_mf', curriculum=0, data='data-bin/finetune/x86-O0', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_num_procs=1, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.1, empty_cache_freq=0, encoder_attention_heads=12, encoder_embed_dim=768, encoder_ffn_embed_dim=3072, encoder_layerdrop=0, encoder_layers=8, encoder_layers_to_keep=None, end_learning_rate=0.0, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, localsgd_frequency=3, log_format='json', log_interval=10, lr=[1e-05], lr_scheduler='polynomial_decay', max_epoch=0, max_positions=512, max_sentences=8, max_sentences_valid=8, max_tokens=None, max_tokens_valid=None, max_update=6000, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=True, min_loss_scale=0.0001, min_lr=-1, model_parallel_size=1, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_seed_provided=True, no_shuffle=False, nprocs_per_node=1, num_classes=44, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=True, reset_lr_scheduler=False, reset_meters=True, reset_optimizer=True, restore_file='/home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt', save_dir='/home/raisul/stateformer/checkpoints/finetune_x86_O0/', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, sentence_avg=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, stop_time_hours=0, task='data_structure_mf', tensorboard_logdir='', threshold_loss_scale=None, tokenizer=None, total_num_update=6000, tpu=False, train_subset='train', update_freq=[4], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_updates=100, weight_decay=0.01, zero_sharding='none')
-
-
-
-DBG : here 4
-Namespace(activation_dropout=0.0, activation_fn='gelu', adam_betas='(0.9,0.98)', adam_eps=1e-06, all_gather_list_size=16384, arch='roberta_mf_nau', attention_dropout=0.1, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_suffix='', classification_head_name='data_structure_head', clip_norm=0.0, cpu=False, criterion='data_structure_mf', curriculum=0, data='data-bin/finetune/x86-O0', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_num_procs=1, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.1, empty_cache_freq=0, encoder_attention_heads=12, encoder_embed_dim=768, encoder_ffn_embed_dim=3072, encoder_layerdrop=0, encoder_layers=8, encoder_layers_to_keep=None, end_learning_rate=0.0, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, localsgd_frequency=3, log_format='json', log_interval=10, lr=[1e-05], lr_scheduler='polynomial_decay', max_epoch=0, max_positions=512, max_sentences=8, max_sentences_valid=8, max_tokens=None, max_tokens_valid=None, max_update=6000, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=True, min_loss_scale=0.0001, min_lr=-1, model_parallel_size=1, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_seed_provided=True, no_shuffle=False, nprocs_per_node=1, num_classes=44, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=True, reset_lr_scheduler=False, reset_meters=True, reset_optimizer=True, restore_file='/home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt', save_dir='/home/raisul/stateformer/checkpoints/finetune_x86_O0/', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, sentence_avg=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, stop_time_hours=0, task='data_structure_mf', tensorboard_logdir='', threshold_loss_scale=None, tokenizer=None, total_num_update=6000, tpu=False, train_subset='train', update_freq=[4], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_updates=100, weight_decay=0.01, zero_sharding='none')
-2023-09-25 12:16:58 | INFO | fairseq.tasks.data_structure_mf | | [input] static dictionary: 657 types
-2023-09-25 12:16:58 | INFO | fairseq.tasks.data_structure_mf | | [input] inst_pos_emb dictionary: 521 types
-2023-09-25 12:16:58 | INFO | fairseq.tasks.data_structure_mf | | [input] op_pos_emb dictionary: 33 types
-2023-09-25 12:16:58 | INFO | fairseq.tasks.data_structure_mf | | [input] arch_emb dictionary: 9 types
-2023-09-25 12:16:58 | INFO | fairseq.tasks.data_structure_mf | | [input] byte1 dictionary: 265 types
-2023-09-25 12:16:58 | INFO | fairseq.tasks.data_structure_mf | | [input] byte2 dictionary: 265 types
-2023-09-25 12:16:58 | INFO | fairseq.tasks.data_structure_mf | | [input] byte3 dictionary: 265 types
-2023-09-25 12:16:58 | INFO | fairseq.tasks.data_structure_mf | | [input] byte4 dictionary: 265 types
+2023-09-26 08:21:56 | INFO | fairseq_cli.train | Namespace(activation_dropout=0.0, activation_fn='gelu', adam_betas='(0.9,0.98)', adam_eps=1e-06, all_gather_list_size=16384, arch='roberta_mf_nau', attention_dropout=0.1, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_suffix='', classification_head_name='data_structure_head', clip_norm=0.0, cpu=False, criterion='data_structure_mf', curriculum=0, data='data-bin/finetune/x86-O0', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_num_procs=1, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.1, empty_cache_freq=0, encoder_attention_heads=12, encoder_embed_dim=768, encoder_ffn_embed_dim=3072, encoder_layerdrop=0, encoder_layers=8, encoder_layers_to_keep=None, end_learning_rate=0.0, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, localsgd_frequency=3, log_format='json', log_interval=10, lr=[1e-05], lr_scheduler='polynomial_decay', max_epoch=0, max_positions=512, max_sentences=8, max_sentences_valid=8, max_tokens=None, max_tokens_valid=None, max_update=6000, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=True, min_loss_scale=0.0001, min_lr=-1, model_parallel_size=1, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_seed_provided=True, no_shuffle=False, nprocs_per_node=1, num_classes=44, num_workers=1, optimizer='adam', optimizer_overrides='{}', patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=None, pipeline_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=True, reset_lr_scheduler=False, reset_meters=True, reset_optimizer=True, restore_file='/home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt', save_dir='/home/raisul/stateformer/checkpoints/finetune_x86_O0/', save_interval=1, save_interval_updates=0, scoring='bleu', seed=1, sentence_avg=False, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, stop_time_hours=0, task='data_structure_mf', tensorboard_logdir='', threshold_loss_scale=None, tokenizer=None, total_num_update=6000, tpu=False, train_subset='train', update_freq=[4], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_updates=100, weight_decay=0.01, zero_sharding='none')
+2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] static dictionary: 657 types
+2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] inst_pos_emb dictionary: 521 types
+2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] op_pos_emb dictionary: 33 types
+2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] arch_emb dictionary: 9 types
+2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] byte1 dictionary: 265 types
+2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] byte2 dictionary: 265 types
+2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] byte3 dictionary: 265 types
+2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | | [input] byte4 dictionary: 265 types
 | [label] dictionary: 49 types
-2023-09-25 12:16:58 | INFO | fairseq.tasks.data_structure_mf | cover dictionary: 8 types
-
-
-
-DBG : here 41
-2023-09-25 12:16:58 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/static/valid
-DBG :  static <fairseq.data.dictionary.Dictionary object at 0x7fb40f0688e0> data-bin/finetune/x86-O0/static/valid None
-2023-09-25 12:16:58 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/inst_pos_emb/valid
-DBG :  inst_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7fb40f068a90> data-bin/finetune/x86-O0/inst_pos_emb/valid None
-2023-09-25 12:16:58 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/op_pos_emb/valid
-DBG :  op_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7fb40f068ca0> data-bin/finetune/x86-O0/op_pos_emb/valid None
-2023-09-25 12:16:58 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/arch_emb/valid
-DBG :  arch_emb <fairseq.data.dictionary.Dictionary object at 0x7fb40f068a30> data-bin/finetune/x86-O0/arch_emb/valid None
-2023-09-25 12:16:58 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte1/valid
-DBG :  byte1 <fairseq.data.dictionary.Dictionary object at 0x7fb40eff59d0> data-bin/finetune/x86-O0/byte1/valid None
-2023-09-25 12:16:58 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte2/valid
-DBG :  byte2 <fairseq.data.dictionary.Dictionary object at 0x7fb40eff5b20> data-bin/finetune/x86-O0/byte2/valid None
-2023-09-25 12:16:58 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte3/valid
-DBG :  byte3 <fairseq.data.dictionary.Dictionary object at 0x7fb40eff5a60> data-bin/finetune/x86-O0/byte3/valid None
-2023-09-25 12:16:58 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte4/valid
-DBG :  byte4 <fairseq.data.dictionary.Dictionary object at 0x7fb40eff5a90> data-bin/finetune/x86-O0/byte4/valid None
-2023-09-25 12:16:58 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/label/valid
-2023-09-25 12:16:58 | INFO | fairseq.tasks.data_structure_mf | Loaded valid with #samples: 2
-
-
-
-DBG : here 5
-2023-09-25 12:16:58 | INFO | fairseq_cli.train | RobertaModelMFNAU(
+2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | cover dictionary: 8 types
+2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/static/valid
+DBG :  static <fairseq.data.dictionary.Dictionary object at 0x7f737124fe20> data-bin/finetune/x86-O0/static/valid None
+2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/inst_pos_emb/valid
+DBG :  inst_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e160> data-bin/finetune/x86-O0/inst_pos_emb/valid None
+2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/op_pos_emb/valid
+DBG :  op_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e0d0> data-bin/finetune/x86-O0/op_pos_emb/valid None
+2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/arch_emb/valid
+DBG :  arch_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e400> data-bin/finetune/x86-O0/arch_emb/valid None
+2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte1/valid
+DBG :  byte1 <fairseq.data.dictionary.Dictionary object at 0x7f737125e2e0> data-bin/finetune/x86-O0/byte1/valid None
+2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte2/valid
+DBG :  byte2 <fairseq.data.dictionary.Dictionary object at 0x7f737125e310> data-bin/finetune/x86-O0/byte2/valid None
+2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte3/valid
+DBG :  byte3 <fairseq.data.dictionary.Dictionary object at 0x7f737125e460> data-bin/finetune/x86-O0/byte3/valid None
+2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/byte4/valid
+DBG :  byte4 <fairseq.data.dictionary.Dictionary object at 0x7f737125e490> data-bin/finetune/x86-O0/byte4/valid None
+2023-09-26 08:21:56 | INFO | fairseq.data.data_utils | loaded 2 examples from: data-bin/finetune/x86-O0/label/valid
+2023-09-26 08:21:56 | INFO | fairseq.tasks.data_structure_mf | Loaded valid with #samples: 2
+2023-09-26 08:21:56 | INFO | fairseq_cli.train | RobertaModelMFNAU(
   (encoder): RobertaEncoderMF(
     (sentence_encoder): TransformerSentenceEncoderMFNAU(
       (dropout_module): FairseqDropout()
@@ -105,85 +85,44 @@ DBG : here 5
     )
   )
 )
-2023-09-25 12:16:58 | INFO | fairseq_cli.train | task: data_structure_mf (DataStructureMF)
-2023-09-25 12:16:58 | INFO | fairseq_cli.train | model: roberta_mf_nau (RobertaModelMFNAU)
-2023-09-25 12:16:58 | INFO | fairseq_cli.train | criterion: data_structure_mf (DataStructureMFCriterion)
-2023-09-25 12:16:58 | INFO | fairseq_cli.train | num. model params: 64190264 (num. trained: 64190264)
-2023-09-25 12:16:59 | INFO | fairseq.trainer | detected shared parameter: encoder.sentence_encoder.bytecombine.layer_1.bias <- encoder.sentence_encoder.bytecombine.layer_2.bias
-2023-09-25 12:16:59 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
-2023-09-25 12:16:59 | INFO | fairseq.utils | rank   0: capabilities =  8.9  ; total memory = 23.628 GB ; name = NVIDIA GeForce RTX 4090                 
-2023-09-25 12:16:59 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
-2023-09-25 12:16:59 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
-2023-09-25 12:16:59 | INFO | fairseq_cli.train | max tokens per GPU = None and max sentences per GPU = 8
-2023-09-25 12:16:59 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.dense.weight
-2023-09-25 12:16:59 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.dense.bias
-2023-09-25 12:16:59 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.out_proj.weight
-2023-09-25 12:16:59 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.out_proj.bias
-2023-09-25 12:16:59 | INFO | fairseq.trainer | loaded checkpoint /home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt (epoch 24 @ 0 updates)
-2023-09-25 12:16:59 | INFO | fairseq.trainer | loading train data for epoch 1
-2023-09-25 12:16:59 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/static/train
-DBG :  static <fairseq.data.dictionary.Dictionary object at 0x7fb40f0688e0> data-bin/finetune/x86-O0/static/train None
-2023-09-25 12:16:59 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/inst_pos_emb/train
-DBG :  inst_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7fb40f068a90> data-bin/finetune/x86-O0/inst_pos_emb/train None
-2023-09-25 12:16:59 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/op_pos_emb/train
-DBG :  op_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7fb40f068ca0> data-bin/finetune/x86-O0/op_pos_emb/train None
-2023-09-25 12:16:59 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/arch_emb/train
-DBG :  arch_emb <fairseq.data.dictionary.Dictionary object at 0x7fb40f068a30> data-bin/finetune/x86-O0/arch_emb/train None
-2023-09-25 12:16:59 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte1/train
-DBG :  byte1 <fairseq.data.dictionary.Dictionary object at 0x7fb40eff59d0> data-bin/finetune/x86-O0/byte1/train None
-2023-09-25 12:16:59 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte2/train
-DBG :  byte2 <fairseq.data.dictionary.Dictionary object at 0x7fb40eff5b20> data-bin/finetune/x86-O0/byte2/train None
-2023-09-25 12:16:59 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte3/train
-DBG :  byte3 <fairseq.data.dictionary.Dictionary object at 0x7fb40eff5a60> data-bin/finetune/x86-O0/byte3/train None
-2023-09-25 12:16:59 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte4/train
-DBG :  byte4 <fairseq.data.dictionary.Dictionary object at 0x7fb40eff5a90> data-bin/finetune/x86-O0/byte4/train None
-2023-09-25 12:16:59 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/label/train
-2023-09-25 12:16:59 | INFO | fairseq.tasks.data_structure_mf | Loaded train with #samples: 15
-2023-09-25 12:16:59 | INFO | fairseq.trainer | begin training epoch 1
+2023-09-26 08:21:56 | INFO | fairseq_cli.train | task: data_structure_mf (DataStructureMF)
+2023-09-26 08:21:56 | INFO | fairseq_cli.train | model: roberta_mf_nau (RobertaModelMFNAU)
+2023-09-26 08:21:56 | INFO | fairseq_cli.train | criterion: data_structure_mf (DataStructureMFCriterion)
+2023-09-26 08:21:56 | INFO | fairseq_cli.train | num. model params: 64190264 (num. trained: 64190264)
+2023-09-26 08:21:58 | INFO | fairseq.trainer | detected shared parameter: encoder.sentence_encoder.bytecombine.layer_1.bias <- encoder.sentence_encoder.bytecombine.layer_2.bias
+2023-09-26 08:21:58 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2023-09-26 08:21:58 | INFO | fairseq.utils | rank   0: capabilities =  8.9  ; total memory = 23.628 GB ; name = NVIDIA GeForce RTX 4090                 
+2023-09-26 08:21:58 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2023-09-26 08:21:58 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
+2023-09-26 08:21:58 | INFO | fairseq_cli.train | max tokens per GPU = None and max sentences per GPU = 8
+2023-09-26 08:21:58 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.dense.weight
+2023-09-26 08:21:58 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.dense.bias
+2023-09-26 08:21:58 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.out_proj.weight
+2023-09-26 08:21:58 | INFO | fairseq.models.roberta_mf.model_nau | Overwriting classification_heads.data_structure_head.out_proj.bias
+2023-09-26 08:21:58 | INFO | fairseq.trainer | loaded checkpoint /home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt (epoch 24 @ 0 updates)
+2023-09-26 08:21:58 | INFO | fairseq.trainer | loading train data for epoch 1
+2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/static/train
+DBG :  static <fairseq.data.dictionary.Dictionary object at 0x7f737124fe20> data-bin/finetune/x86-O0/static/train None
+2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/inst_pos_emb/train
+DBG :  inst_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e160> data-bin/finetune/x86-O0/inst_pos_emb/train None
+2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/op_pos_emb/train
+DBG :  op_pos_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e0d0> data-bin/finetune/x86-O0/op_pos_emb/train None
+2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/arch_emb/train
+DBG :  arch_emb <fairseq.data.dictionary.Dictionary object at 0x7f737125e400> data-bin/finetune/x86-O0/arch_emb/train None
+2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte1/train
+DBG :  byte1 <fairseq.data.dictionary.Dictionary object at 0x7f737125e2e0> data-bin/finetune/x86-O0/byte1/train None
+2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte2/train
+DBG :  byte2 <fairseq.data.dictionary.Dictionary object at 0x7f737125e310> data-bin/finetune/x86-O0/byte2/train None
+2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte3/train
+DBG :  byte3 <fairseq.data.dictionary.Dictionary object at 0x7f737125e460> data-bin/finetune/x86-O0/byte3/train None
+2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/byte4/train
+DBG :  byte4 <fairseq.data.dictionary.Dictionary object at 0x7f737125e490> data-bin/finetune/x86-O0/byte4/train None
+2023-09-26 08:21:58 | INFO | fairseq.data.data_utils | loaded 15 examples from: data-bin/finetune/x86-O0/label/train
+2023-09-26 08:21:58 | INFO | fairseq.tasks.data_structure_mf | Loaded train with #samples: 15
+2023-09-26 08:21:58 | INFO | fairseq.trainer | begin training epoch 1
+ DBG  <fairseq.logging.progress_bar.JsonProgressBar object at 0x7f7370cee700>
 
- DBG # old target shape torch.Size([7, 512])
-
-
-
- DBG  :  torch.Size([7, 400])
- sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
-1
- DBG real_tokens:  torch.Size([7, 400])
-DBG target:  400
- DBG real_tokens new!:  torch.Size([7, 400])
- DBG #  torch.Size([7, 400, 44]) torch.Size([7, 400])
-
- DBG # old target shape torch.Size([8, 512])
-
-
-
- DBG  :  torch.Size([8, 451])
- sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
-1
- DBG real_tokens:  torch.Size([8, 451])
-DBG target:  451
- DBG real_tokens new!:  torch.Size([8, 451])
- DBG #  torch.Size([8, 451, 44]) torch.Size([8, 451])
-2023-09-25 12:17:00 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 64.0
-2023-09-25 12:17:00 | INFO | fairseq_cli.train | begin validation on "valid" subset
-
-
-
- DBG  :  torch.Size([2, 273])
- sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
-1
- DBG real_tokens:  torch.Size([2, 273])
-DBG target:  273
- DBG real_tokens new!:  torch.Size([2, 273])
- DBG #  torch.Size([2, 273, 44]) torch.Size([2, 273])
-2023-09-25 12:17:00 | INFO | valid | {"epoch": 1, "valid_loss": "6.506", "valid_nll_loss": "11.276", "valid_precision": "0", "valid_recall": "0", "valid_F1": "0", "valid_accuracy": "0", "valid_wps": "0", "valid_wpb": "315", "valid_bsz": "546", "valid_num_updates": "0"}
-2023-09-25 12:17:00 | INFO | fairseq_cli.train | begin save checkpoint
-2023-09-25 12:17:02 | INFO | fairseq.checkpoint_utils | saved checkpoint /home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt (epoch 1 @ 0 updates, score 0.0) (writing took 1.6218715701252222 seconds)
-2023-09-25 12:17:02 | INFO | fairseq_cli.train | end of epoch 1 (average epoch stats below)
-2023-09-25 12:17:02 | INFO | train | {"epoch": 1, "train_loss_scale": "64", "train_train_wall": "0", "train_wall": "3"}
-2023-09-25 12:17:02 | INFO | fairseq.trainer | begin training epoch 2
-
- DBG # old target shape torch.Size([7, 512])
+ DBG # old target shape torch.Size([7, 400])
 
 
 
@@ -195,7 +134,7 @@ DBG target:  400
  DBG real_tokens new!:  torch.Size([7, 400])
  DBG #  torch.Size([7, 400, 44]) torch.Size([7, 400])
 
- DBG # old target shape torch.Size([8, 512])
+ DBG # old target shape torch.Size([8, 451])
 
 
 
@@ -206,17 +145,60 @@ DBG target:  400
 DBG target:  451
  DBG real_tokens new!:  torch.Size([8, 451])
  DBG #  torch.Size([8, 451, 44]) torch.Size([8, 451])
-2023-09-25 12:17:02 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 32.0
-2023-09-25 12:17:02 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2023-09-26 08:22:00 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 64.0
+2023-09-26 08:22:00 | INFO | fairseq_cli.train | begin validation on "valid" subset
 
 
 
- DBG  :  torch.Size([2, 273])
+ DBG  :  torch.Size([2, 274])
  sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
 1
- DBG real_tokens:  torch.Size([2, 273])
-DBG target:  273
- DBG real_tokens new!:  torch.Size([2, 273])
- DBG #  torch.Size([2, 273, 44]) torch.Size([2, 273])
-2023-09-25 12:17:02 | INFO | valid | {"epoch": 2, "valid_loss": "6.506", "valid_nll_loss": "11.276", "valid_precision": "0", "valid_recall": "0", "valid_F1": "0", "valid_accuracy": "0", "valid_wps": "0", "valid_wpb": "315", "valid_bsz": "546", "valid_num_updates": "0", "valid_best_accuracy": "0"}
-2023-09-25 12:17:02 | INFO | fairseq_cli.train | begin save checkpoint
+ DBG real_tokens:  torch.Size([2, 274])
+DBG target:  274
+ DBG real_tokens new!:  torch.Size([2, 274])
+ DBG #  torch.Size([2, 274, 44]) torch.Size([2, 274])
+2023-09-26 08:22:00 | INFO | valid | {"epoch": 1, "valid_loss": "6.256", "valid_nll_loss": "6.231", "valid_precision": "0", "valid_recall": "0", "valid_F1": "0", "valid_accuracy": "0", "valid_wps": "0", "valid_wpb": "508", "valid_bsz": "506", "valid_num_updates": "0"}
+2023-09-26 08:22:00 | INFO | fairseq_cli.train | begin save checkpoint
+2023-09-26 08:22:01 | INFO | fairseq.checkpoint_utils | saved checkpoint /home/raisul/stateformer/checkpoints/finetune_x86_O0/checkpoint_best.pt (epoch 1 @ 0 updates, score 0.0) (writing took 1.5023399740000514 seconds)
+2023-09-26 08:22:01 | INFO | fairseq_cli.train | end of epoch 1 (average epoch stats below)
+2023-09-26 08:22:01 | INFO | train | {"epoch": 1, "train_loss_scale": "64", "train_train_wall": "1", "train_wall": "4"}
+2023-09-26 08:22:01 | INFO | fairseq.trainer | begin training epoch 2
+ DBG  <fairseq.logging.progress_bar.JsonProgressBar object at 0x7f7370cee130>
+
+ DBG # old target shape torch.Size([7, 400])
+
+
+
+ DBG  :  torch.Size([7, 400])
+ sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
+1
+ DBG real_tokens:  torch.Size([7, 400])
+DBG target:  400
+ DBG real_tokens new!:  torch.Size([7, 400])
+ DBG #  torch.Size([7, 400, 44]) torch.Size([7, 400])
+
+ DBG # old target shape torch.Size([8, 451])
+
+
+
+ DBG  :  torch.Size([8, 451])
+ sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
+1
+ DBG real_tokens:  torch.Size([8, 451])
+DBG target:  451
+ DBG real_tokens new!:  torch.Size([8, 451])
+ DBG #  torch.Size([8, 451, 44]) torch.Size([8, 451])
+2023-09-26 08:22:02 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 32.0
+2023-09-26 08:22:02 | INFO | fairseq_cli.train | begin validation on "valid" subset
+
+
+
+ DBG  :  torch.Size([2, 274])
+ sample mm :  dict_keys(['id', 'net_input', 'target', 'nsentences', 'ntokens'])
+1
+ DBG real_tokens:  torch.Size([2, 274])
+DBG target:  274
+ DBG real_tokens new!:  torch.Size([2, 274])
+ DBG #  torch.Size([2, 274, 44]) torch.Size([2, 274])
+2023-09-26 08:22:02 | INFO | valid | {"epoch": 2, "valid_loss": "6.256", "valid_nll_loss": "6.231", "valid_precision": "0", "valid_recall": "0", "valid_F1": "0", "valid_accuracy": "0", "valid_wps": "0", "valid_wpb": "508", "valid_bsz": "506", "valid_num_updates": "0", "valid_best_accuracy": "0"}
+2023-09-26 08:22:02 | INFO | fairseq_cli.train | begin save checkpoint

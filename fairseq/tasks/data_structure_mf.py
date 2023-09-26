@@ -115,11 +115,14 @@ class DataStructureMF(LegacyFairseqTask):
         Args:
             split (str): name of the split (e.g., train, valid, test)
         """
+
         paths = utils.split_paths(self.args.data)
         assert len(paths) > 0
         data_path = paths[(epoch - 1) % len(paths)]
 
+
         src_tokens = {}
+        #TODO nahid target is never populated!
         target = {}
         for field in self.fields:
             split_path = os.path.join(self.args.data, field, split) # data train test

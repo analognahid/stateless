@@ -48,24 +48,21 @@ def main(args):
     ), "Must specify batch size either with --max-tokens or --max-sentences"
 
     metrics.reset()
-    print("\n\n\nDBG : here 2")
     np.random.seed(args.seed)
     utils.set_torch_seed(args.seed)
 
     if distributed_utils.is_master(args):
         checkpoint_utils.verify_checkpoint_directory(args.save_dir)
-    print("\n\n\nDBG : here 3")
     # Print args
     logger.info(args)
-    print("\n\n\nDBG : here 4")
-    print(args)
+
+
     # Setup task, e.g., translation, language modeling, etc.
     task = tasks.setup_task(args)
-    print("\n\n\nDBG : here 41")
     # Load valid dataset (we load training data below, based on the latest checkpoint)
     for valid_sub_split in args.valid_subset.split(","):
         task.load_dataset(valid_sub_split, combine=False, epoch=1)
-    print("\n\n\nDBG : here 5")
+
     # Build model and criterion
     model = task.build_model(args)
     criterion = task.build_criterion(args)
@@ -202,10 +199,16 @@ def train(args, trainer, task, epoch_itr):
     valid_subsets = args.valid_subset.split(",")
     should_stop = False
     num_updates = trainer.get_num_updates()
+
+    print(' DBG ',progress)
+
+
     for i, samples in enumerate(progress):
         with metrics.aggregate("train_inner"), torch.autograd.profiler.record_function(
             "train_step-%d" % i
-        ):
+        ):  
+            
+
             log_output = trainer.train_step(samples)
 
         if log_output is not None:  # not OOM, overflow, ...
@@ -349,6 +352,7 @@ def cli_main(modify_parser=None):
             with torch.autograd.profiler.emit_nvtx():
                 distributed_utils.call_main(args, main)
     else:
+        print("DBG train: ",args)
         distributed_utils.call_main(args, main)
 
 

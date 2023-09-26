@@ -83,7 +83,6 @@ def get_function_reps(die, mapping):
 
 
 def get_type(type_str, agg):
-
     if '*' in type_str:
         return get_type(type_str.replace('*', ''), agg)+'*'
     elif '[' in type_str and ']' in type_str:
@@ -100,30 +99,30 @@ def get_type(type_str, agg):
     elif 'float' in type_str:
         return 'float'
     elif 'long' in type_str and 'double' in type_str:
-        return 'long double'
+        return 'long_double'
     elif 'double' in type_str:
         return 'double'
 
     elif 'char' in type_str:
         if 'u' in type_str:
-            return 'unsigned char'
+            return 'unsigned_char'
         return 'signed char'
     elif 'short' in type_str:
         if 'u' in type_str:
-            return 'unsigned short'
-        return 'signed short'
+            return 'unsigned_short'
+        return 'signed_short'
     elif 'int' in type_str:
         if 'u' in type_str:
             return 'unsigned int'
-        return 'signed int'
+        return 'signed_int'
     elif 'longlong' in type_str:
         if 'u' in type_str:
-            return 'unsigned long long'
-        return 'signed long long'
+            return 'unsigned_long_long'
+        return 'signed_long_long'
     elif 'long' in type_str:
         if 'u' in type_str:
-            return 'unsigned long'
-        return 'signed long'
+            return 'unsigned_long'
+        return 'signed_long'
 
     elif 'undefined' in type_str:
         return 'undefined'
@@ -207,7 +206,7 @@ output_dir = '/home/raisul/stateformer/data-src/finetune/x86-O0/' # args.output_
 stack_dir = '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format'
 
 
-
+ 
 def is_elf_file(file_path):
     try:
         file_type = magic.from_file(file_path)
@@ -227,8 +226,8 @@ def get_fname(fpath):
 
 filtered_files = []
 for path, subdirs, files in os.walk(SRC_N_BIN_PATH):
-    if len(filtered_files)>5:
-        break
+    # if len(filtered_files)>5:
+    #     break
     for name in files:
 
         if '_elf_file_gdwarf4_O0' not in name:
