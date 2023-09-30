@@ -26,13 +26,13 @@ import subprocess
 from subprocess import STDOUT, check_output
 
 
-SRC_N_BIN_PATH        = '/media/raisul/nahid_personal/clones_100k_trimmed_dwarf4/'
+SRC_N_BIN_PATH        = '/media/raisul/nahid_personal/clones_100k/'
 
-output_dir_path =   '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format/'
+output_dir_path =   '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format_100k/'
 
 
 # /ssd/nahid/dwarf4/ghidra_types
-split_key = 'clones_100k_trimmed_dwarf4'
+split_key = 'clones_100k'
 
 def is_elf_file(file_path):
     try:
@@ -42,7 +42,7 @@ def is_elf_file(file_path):
         return False
 
 def analyse(  binary_path ):
-
+    # RUN unset GTK_PATH in terminal for no symbol error
 
     # print(os.path.getsize(binary_path))
     # if os.path.getsize(binary_path)>(25*1024):
@@ -95,7 +95,7 @@ def analyse(  binary_path ):
 
 filtered_files = []
 for path, subdirs, files in os.walk(SRC_N_BIN_PATH):
-    # if len(filtered_files)>5:
+    # if len(filtered_files)>1000000:
     #     break
     for name in files:
 
@@ -117,7 +117,7 @@ from multiprocessing import active_children
 if __name__ == "__main__":  # Allows for the safe importing of the main module
     print("There are {} CPUs on this machine".format( multiprocessing.cpu_count()))
     
-    number_processes = multiprocessing.cpu_count()-2
+    number_processes = 10 #multiprocessing.cpu_count()-2
     pool = multiprocessing.Pool(number_processes)
 
     # filtered_files = filtered_files[0:200]

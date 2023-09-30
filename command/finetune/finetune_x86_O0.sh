@@ -3,9 +3,9 @@
 # CHECKPOINT_PATH=checkpoints/finetune_mips_O0
 
 CHECKPOINT_PATH=/home/raisul/stateformer/checkpoints/finetune_x86_O0
-mkdir -p $CHECKPOINT_PATH
-rm -f $CHECKPOINT_PATH/checkpoint_best.pt
-cp /home/raisul/stateformer/checkpoints/pretrain/checkpoint_best.pt $CHECKPOINT_PATH/
+# mkdir -p $CHECKPOINT_PATH
+# rm -f $CHECKPOINT_PATH/checkpoint_best.pt
+# cp /home/raisul/stateformer/checkpoints/pretrain/checkpoint_best.pt $CHECKPOINT_PATH/
 
 TOTAL_UPDATES=6000    # Total number of training steps
 WARMUP_UPDATES=100    # Warmup the learning rate over this many updates

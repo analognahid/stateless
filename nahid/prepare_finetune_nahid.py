@@ -201,8 +201,8 @@ def byte2seq(value_list):
     return [value_list[i:i + 2] for i in range(len(value_list) - 2)]
 
 
-#TODO nahid fix
-args_arch = 'x86'
+#look at the dict in src/bin arch path
+args_arch = 'x64'
 
 output_dir = '/home/raisul/stateformer/data-src/finetune/x86-O0/' # args.output_dir[0]
 
@@ -258,6 +258,7 @@ valid_label = open(os.path.join(output_dir, 'valid.label'), 'w')
 
 # filename = 'command/ghidra/ds_test_dwarf'
 
+MAX_TOKENS_ALLOWED = 510
 for file_path in filtered_files:
     filename = get_fname(file_path)
 
@@ -384,13 +385,37 @@ for file_path in filtered_files:
                 except ValueError as err:
                     print('ERR 2')
                     continue
-                # skip invalid functions
-                if len(labels) < 30 or len(labels) > 510 or len(set(labels)) == 1:
+                # skip small functions
+                if len(labels) < 300 or len(set(labels)) == 1:
                     continue
+
+                if len(labels) > MAX_TOKENS_ALLOWED :
+                    for _ in range (10): #to make sure we have more than one type labels
+                        valid_start_index =  len(labels)-MAX_TOKENS_ALLOWED 
+                        start_index = random.randint(0, valid_start_index)
+                        end_index_slice = start_index+MAX_TOKENS_ALLOWED
+
+                        #inputs
+                        static = static[start_index:end_index_slice]
+                        inst_pos = inst_pos[start_index:end_index_slice]
+                        op_pos = op_pos[start_index:end_index_slice]
+                        arch = arch[start_index:end_index_slice]
+                        byte1 = byte1[start_index:end_index_slice]
+                        byte2 = byte2[start_index:end_index_slice]
+                        byte3 = byte3[start_index:end_index_slice]
+                        byte4 = byte4[start_index:end_index_slice]
+
+                        # output
+                        labels = labels[start_index:end_index_slice]
+
+                        if len(set(labels)) >1:
+                            break
+                    if len(set(labels)) == 1:
+                        continue
                 
                 if PROB==True:
                     continue
-                if not random.random() < 0.1:
+                if not random.random() < 0.2:
                     train_file[params.fields[0]].write(' '.join(static) + '\n')
                     train_file[params.fields[1]].write(' '.join(inst_pos) + '\n')
                     train_file[params.fields[2]].write(' '.join(op_pos) + '\n')

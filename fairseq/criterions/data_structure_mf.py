@@ -48,19 +48,11 @@ class DataStructureMFCriterion(FairseqCriterion):
 
         real_tokens = sample['target'].ne(self.task.label_dictionary.pad() - self.task.label_dictionary.nspecial)
 
-
-        # print("DBG ::: ", sample['net_input']['src_tokens'][self.fields[-3]])
-        # print("DBG ### ", self.padding_idx_dict[self.fields[-3]])
-
-        # print('DBG :::ne ',sample['net_input']['src_tokens'][self.fields[-3]].ne(self.padding_idx_dict[self.fields[-3]]))
-        # print("DBG  eq!!  ",real_tokens.eq(
-                # sample['net_input']['src_tokens'][self.fields[-3]].ne(self.padding_idx_dict[self.fields[-3]])
-                # ))
-        # assert torch.all(
-        #     real_tokens.eq(
-        #         sample['net_input']['src_tokens'][self.fields[-3]].ne(self.padding_idx_dict[self.fields[-3]])
-        #         )
-        #     )
+        assert torch.all(
+            real_tokens.eq(
+                sample['net_input']['src_tokens'][self.fields[-3]].ne(self.padding_idx_dict[self.fields[-3]])
+                )
+            )
 
         sample_size = real_tokens.int().sum().float()
 
@@ -75,6 +67,11 @@ class DataStructureMFCriterion(FairseqCriterion):
         lprobs = F.log_softmax(logits[real_tokens, :], dim=-1, dtype=torch.float32)
         loss = F.nll_loss(lprobs, targets, reduction='sum')
 
+        #TODO nahid hack
+        non_noAccess_indexes = targets.nonzero().squeeze().detach()
+        non_zero_targets = targets[non_noAccess_indexes]
+        # sample_size = targets.int().sum().float()
+
         logging_output = {
             'loss': loss.data,
             'ntokens': sample['ntokens'],
@@ -82,14 +79,24 @@ class DataStructureMFCriterion(FairseqCriterion):
             'sample_size': sample_size,
         }
 
-        # print(" DBG Logits: ",logits[real_tokens, :])
         preds = logits[real_tokens, :].argmax(dim=1)
+        
+        #todo nahid hack
+        non_zero_preds = preds[non_noAccess_indexes]
         logging_output['ncorrect_total'] = (preds == targets).sum()
         logging_output['ncorrect'] = ((preds == targets) * (targets != 0)).sum()
 
         logging_output['ntype'] = (targets != 0).sum().item()
         logging_output['ntype_pred'] = (preds != 0).sum().item()
+        
+        tempmine = (non_zero_targets==non_zero_preds)
 
+        print("DBG their count ",((preds == targets) * (targets != 0)).sum())
+        print('DBG  my count : ' , tempmine.sum())
+        print("DBG total",tempmine.shape )
+        print('accuracy ', tempmine.sum()/len(tempmine))
+
+        # breakpoint()
         return loss, sample_size, logging_output
 
     @staticmethod
@@ -105,11 +112,11 @@ class DataStructureMFCriterion(FairseqCriterion):
             metrics.log_scalar('nll_loss', loss_sum / ntokens / math.log(2), ntokens, round=3)
 
         if len(logging_outputs) > 0 and 'ncorrect_total' in logging_outputs[0]:
+
             ncorrect_total = sum(log.get('ncorrect_total', 0) for log in logging_outputs)
             ncorrect = sum(log.get('ncorrect', 0) for log in logging_outputs)
             ntype = sum(log.get('ntype', 0) for log in logging_outputs)
             ntype_pred = sum(log.get('ntype_pred', 0) for log in logging_outputs)
-
             precision = ncorrect / (ntype_pred + 1e-5)
             recall = ncorrect / (ntype + 1e-5)
             F1 = 2 * (precision * recall) / (precision + recall + 1e-5)
