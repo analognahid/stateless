@@ -1,0 +1,1 @@
+python nahid/prepare_finetune_nahid.py && python ./command/finetune/preprocess.py && ./command/finetune/finetune_x86_O0.sh

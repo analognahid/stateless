@@ -39,7 +39,7 @@ import subprocess
 from subprocess import STDOUT, check_output
 
 
-
+# unset GTK_PATH
 
 from command import params
 # class params:
@@ -81,6 +81,50 @@ def get_function_reps(die, mapping):
 
     return functions
 
+def adapter (type_str):
+
+    if '*' in type_str:
+        return adapter(type_str.replace('*', ''))+'*'
+    elif 'array_' in type_str:
+        return 'array'
+    elif 'struct' in type_str:
+        return 'struct'
+    elif 'float' in type_str:
+        return 'float'
+    elif 'long' in type_str and 'double' in type_str:
+        return 'long_double'
+    elif 'double' in type_str:
+        return 'double'
+
+    elif 'char' in type_str:
+        if 'u' in type_str:
+            return 'unsigned_char'
+        return 'signed_char'
+    elif 'short' in type_str:
+        if 'u' in type_str:
+            return 'unsigned_short'
+        return 'signed_short'
+    elif 'int' in type_str:
+        if 'u' in type_str:
+            return 'unsigned_int'
+        return 'signed_int'
+    elif 'longlong' in type_str:
+        if 'u' in type_str:
+            return 'unsigned_long_long'
+        return 'signed_long_long'
+    elif 'long' in type_str:
+        if 'u' in type_str:
+            return 'unsigned_long'
+        return 'signed_long'
+
+
+    
+    # return 'no-access'
+
+    print("VALUE ERROR", type_str)
+    raise ValueError
+    # # #TODO fix this
+    # return '?you shouldnt be seeing this?'
 
 def get_type(type_str, agg):
     
@@ -128,9 +172,11 @@ def get_type(type_str, agg):
             return 'unsigned_long'
         return 'signed_long'
 
+    elif 'undefined' in type_str:
+        return 'madeupword0000'
+    
+    # return 'no-access'
 
-    # elif 'undefined' in type_str:
-    #     return 'undefined'
     print("VALUE ERROR", type_str)
     raise ValueError
     # # #TODO fix this
@@ -206,10 +252,15 @@ args_arch = 'x64'
 
 output_dir = '/home/raisul/stateformer/data-src/finetune/x86-O0/' # args.output_dir[0]
 
-stack_dir = '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format'
-
-
+stack_dir =  '/media/raisul/nahid_personal/dwarf4/ghidra_types/d4_01/'
+# stack_dir = '/media/raisul/nahid_personal/dwarf4/ghidra_types/d4_03/'
  
+SRC_N_BIN_PATH  = '/media/raisul/nahid_personal/clones_100k/'
+
+PREPARED_GROUNDTRUTH_FILES_PATH = "/media/raisul/nahid_personal/optimizations/O1_mix/instructions_and_type_data_100k/"
+
+split_key = 'clones_100k'
+
 def is_elf_file(file_path):
     try:
         file_type = magic.from_file(file_path)
@@ -218,32 +269,31 @@ def is_elf_file(file_path):
         return False
     
 
-SRC_N_BIN_PATH  = '/media/raisul/nahid_personal/clones_100k_trimmed_dwarf4/'
-
-output_dir_path = '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format/'
-
-split_key = 'clones_100k_trimmed_dwarf4'
 
 def get_fname(fpath):
     return file_path.split('/')[-1]
 
 filtered_files = []
-for path, subdirs, files in os.walk(SRC_N_BIN_PATH):
-    # if len(filtered_files)>100:
-    #     break
-    for name in files:
+# for path, subdirs, files in os.walk(SRC_N_BIN_PATH):
+#     # if len(filtered_files)>100000:
+#     #     break
+#     for name in files:
 
-        if '_elf_file_gdwarf4_O0' not in name:
-            continue
+#         if '_elf_file_gdwarf4_O0' not in name:
+#             continue
 
-        file_path = os.path.join(path, name)
+#         file_path = os.path.join(path, name)
         
-        if is_elf_file(file_path)== False:
-            continue
-        filtered_files.append(file_path)
+#         if is_elf_file(file_path)== False:
+#             continue
+#         filtered_files.append(file_path)
 
+# /home/raisul/stateformer/_elf_file_gdwarf4_O2.ignore_latest.pkl
+# /home/raisul/reverse/codes/dataset/_elf_file_gdwarf4_O3.ignore.pkl
 
-
+with open('/home/raisul/reverse/codes/dataset/_elf_file_gdwarf4_O1.ignore.pkl', 'rb') as file:
+    filtered_files  = pickle.load(file)  
+filtered_files.reverse()
 
 
 
@@ -257,25 +307,49 @@ valid_label = open(os.path.join(output_dir, 'valid.label'), 'w')
 
 
 # filename = 'command/ghidra/ds_test_dwarf'
-
+# filtered_files =filtered_files[:2000]
 MAX_TOKENS_ALLOWED = 510
-for file_path in filtered_files:
+for fi,file_path in enumerate(filtered_files):
+    
+    print('#',fi)
     filename = get_fname(file_path)
 
     #custom names by nahid to keep track
     unique_path = file_path.split(split_key)[1][1:]
     github_path = unique_path.split('/')[0]
     unique_file_name=github_path + '_____'+(hashlib.md5(unique_path.encode())).hexdigest()
-    stack_file_path = os.path.join(output_dir_path , unique_file_name ) +'_stacks'
+    stack_file_path = os.path.join(stack_dir , unique_file_name ) +'_stacks'
 
+    type_gt_file_path = os.path.join(PREPARED_GROUNDTRUTH_FILES_PATH , (unique_file_name+".pkl" ))
+    
     # load data structure information from ghidra
     try:
         with open(stack_file_path, 'r') as f:
             loc_dict = json.loads(f.read())
     except :
-        print('ERR 1')
+        print('ERR 1',stack_file_path)
+
         continue
     
+    GT ={}
+    try:
+        with open(type_gt_file_path, 'rb') as gt_file:
+            model_input_list, model_type_list   = pickle.load(gt_file)  
+
+            
+            for ix,it in enumerate(model_input_list):
+                backward_slice , target_slice, forward_slice = it
+                hex_addr = target_slice.split('[LOOK]')[1].split(' ')[0]
+                hex_addr_int = int(hex_addr, 0)
+                adapted_type_str = adapter(model_type_list[ix])
+                GT[hex_addr_int] = adapted_type_str
+            if len(list(GT.keys()))==0:
+                continue
+    except :
+        print('ERR 837')
+
+
+
     with open(file_path, 'rb') as f:
         elffile = ELFFile(f)
         dwarf = elffile.get_dwarf_info()
@@ -285,7 +359,7 @@ for file_path in filtered_files:
         opcodes = code.data()
         addr = code['sh_addr']
         md = Cs(CS_ARCH_X86, CS_MODE_64)
-
+        IS_TRAINING = not random.random() < 0.2
         for CU in dwarf.iter_CUs():
             function_reps = get_function_reps(CU.get_top_DIE(), None)
 
@@ -317,32 +391,43 @@ for file_path in filtered_files:
 
                         if start_addr <= address < end_addr:
                             tokens = tokenize(f'{op_code} {op_str}')
-                            try:
-                                label = get_ds_loc(loc_dict, address, func['name'])
-                            except ValueError as err:
-                                print('ERR 4')
-                                PROB = True
-                                break
-                            # get the register and stack location for likely arg vars from the 
-                            # op_str and label the instruction by using the register->param type
-                            # mapping from Ghidra. A mapping of stack location -> type is stored
-                            # for whenever else the location is seen.
-                            if label == 'undefined' and '[' in tokens and op_code == 'mov':
-                                reg = get_reg(tokens)
 
-                                loc = op_str[op_str.find("[")+1:op_str.find("]")]
-                                if loc in func_args:
-                                    label = func_args[loc]
+                            if address in GT:
+                                label = GT[address]
+                            else:
+                                label = 'no-access'
+                            # if 
+                            # try:
+                            #     label = get_ds_loc(loc_dict, address, func['name'])
+                            # except ValueError as err:
+                            #     print('ERR 4')
+                            #     PROB = True
+                            #     break
+                            # except Exception as e:
+                            #     print('ERR 5')
+                            #     PROB = True
+                            #     break
+                            # # get the register and stack location for likely arg vars from the 
+                            # # op_str and label the instruction by using the register->param type
+                            # # mapping from Ghidra. A mapping of stack location -> type is stored
+                            # # for whenever else the location is seen.
+                            # if label == 'undefined' and '[' in tokens and op_code == 'mov':
+                            #     reg = get_reg(tokens)
 
-                                else:
-                                    try:
-                                        label = get_arg_stack_loc(loc_dict, reg, func['name'])
-                                    except ValueError as err:
-                                        print('ERR 3')
-                                        PROB = True
-                                        break
-                                    func_args[loc] = label
+                            #     loc = op_str[op_str.find("[")+1:op_str.find("]")]
+                            #     if loc in func_args:
+                            #         label = func_args[loc]
 
+                            #     else:
+                            #         try:
+                            #             label = get_arg_stack_loc(loc_dict, reg, func['name'])
+                            #         except ValueError as err:
+                            #             print('ERR 3')
+                            #             PROB = True
+                            #             break
+                            #         func_args[loc] = label
+
+                            
                             for i, token in enumerate(tokens):
                                 if '0x' in token.lower():
                                     static.append('hexvar')
@@ -385,9 +470,13 @@ for file_path in filtered_files:
                 except ValueError as err:
                     print('ERR 2')
                     continue
+                except Exception as e:
+                    print('ERR 6')
+                    PROB = True
+                    break
                 # skip small functions
-                if len(labels) < 300 or len(set(labels)) == 1:
-                    continue
+                # if len(labels) < 300 or len(set(labels)) == 1:
+                #     continue
 
                 if len(labels) > MAX_TOKENS_ALLOWED :
                     for _ in range (10): #to make sure we have more than one type labels
@@ -413,9 +502,10 @@ for file_path in filtered_files:
                     if len(set(labels)) == 1:
                         continue
                 
-                if PROB==True:
-                    continue
-                if not random.random() < 0.2:
+                # if PROB==True:
+                #     continue
+                # continue
+                if IS_TRAINING:
                     train_file[params.fields[0]].write(' '.join(static) + '\n')
                     train_file[params.fields[1]].write(' '.join(inst_pos) + '\n')
                     train_file[params.fields[2]].write(' '.join(op_pos) + '\n')

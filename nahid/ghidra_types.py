@@ -1,6 +1,6 @@
 
 import os
-
+import pickle
 from elftools.elf.elffile import ELFFile
 from elftools.dwarf.descriptions import (
     describe_DWARF_expr, set_global_machine_arch)
@@ -15,7 +15,7 @@ from collections import defaultdict
 
 import collections
 import posixpath
-
+import random
 
 import ntpath
 from capstone import *
@@ -25,10 +25,11 @@ import magic ,hashlib
 import subprocess
 from subprocess import STDOUT, check_output
 
-
+# /unset GTK_PATH
 SRC_N_BIN_PATH        = '/media/raisul/nahid_personal/clones_100k/'
-
-output_dir_path =   '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format_100k/'
+# output_dir_path =   '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format_100k/'
+# output_dir_path =   '/media/raisul/nahid_personal/dwarf4/ghidra_types/analysis_data_state_format_100k_dwarf4_O2/'
+output_dir_path =  '/media/raisul/nahid_personal/dwarf4/ghidra_types/d4_01/'
 
 
 # /ssd/nahid/dwarf4/ghidra_types
@@ -94,22 +95,41 @@ def analyse(  binary_path ):
 
 
 filtered_files = []
-for path, subdirs, files in os.walk(SRC_N_BIN_PATH):
-    # if len(filtered_files)>1000000:
-    #     break
-    for name in files:
+# for path, subdirs, files in os.walk(SRC_N_BIN_PATH):
+#     # if len(filtered_files)>100:
+#     #     break
+    
+#     print(' DBG ->: ',len(filtered_files))
+#     for name in files:
 
-        if '_elf_file_gdwarf4_O0' not in name:
-            continue
+#         if '_elf_file_gdwarf4_O1' not in name:
+#             continue
 
-        file_path = os.path.join(path, name)
+#         file_path = os.path.join(path, name)
         
-        if is_elf_file(file_path)== False:
-            continue
-        filtered_files.append(file_path)
+#         if is_elf_file(file_path)== False:
+#             continue
+#         filtered_files.append(file_path)
 
 
+# print(' DBG: ',len(filtered_files))
 
+# # 'dwarf4_files.ignore.pkl' optim 0
+# pkl_file_name =  'dwarf4_O1_files.ignore.pkl'
+# with open(pkl_file_name, 'wb') as f:
+#     pickle.dump(filtered_files , f)
+    
+# with open(pkl_file_name, 'rb') as file:
+#     filtered_files  = pickle.load(file)  
+
+    
+with open('/home/raisul/reverse/codes/dataset/_elf_file_gdwarf4_O1.ignore.pkl', 'rb') as file:
+    filtered_files  = pickle.load(file)  
+
+# random.shuffle(filtered_files)
+filtered_files.reverse()
+
+print(len(filtered_files))
 
 import multiprocessing
 from multiprocessing import active_children
@@ -117,10 +137,9 @@ from multiprocessing import active_children
 if __name__ == "__main__":  # Allows for the safe importing of the main module
     print("There are {} CPUs on this machine".format( multiprocessing.cpu_count()))
     
-    number_processes = 10 #multiprocessing.cpu_count()-2
+    number_processes =  multiprocessing.cpu_count()-15
     pool = multiprocessing.Pool(number_processes)
 
-    # filtered_files = filtered_files[0:200]
     results = pool.map_async(analyse, filtered_files)
     pool.close()
     pool.join()

@@ -40,7 +40,6 @@ logger = logging.getLogger("fairseq_cli.train")
 
 
 def main(args):
-    print("\n\n\nDBG : here 1")
     utils.import_user_module(args)
 
     assert (
@@ -200,10 +199,13 @@ def train(args, trainer, task, epoch_itr):
     should_stop = False
     num_updates = trainer.get_num_updates()
 
-    print(' DBG ',progress)
-
 
     for i, samples in enumerate(progress):
+
+        #TODO NAHID DBG
+        # START COMMENTING FOR JUST VALID
+
+        # print("DBG   i = ", i ,'\n', '$'*100)
         with metrics.aggregate("train_inner"), torch.autograd.profiler.record_function(
             "train_step-%d" % i
         ):  
@@ -222,10 +224,16 @@ def train(args, trainer, task, epoch_itr):
                 # the end-of-epoch stats will still be preserved
                 metrics.reset_meters("train_inner")
 
+
+
+
+        #TODO NAHID END COMMENT FOR STOP JUST VALID
+
         end_of_epoch = not itr.has_next()
         valid_losses, should_stop = validate_and_save(
             args, trainer, task, epoch_itr, valid_subsets, end_of_epoch
         )
+
 
         if should_stop:
             break
@@ -291,7 +299,10 @@ def get_training_stats(stats):
     stats["wall"] = round(metrics.get_meter("default", "wall").elapsed_time, 0)
     return stats
 
-
+from sklearn.metrics import confusion_matrix
+import math 
+import seaborn as sns
+import pickle
 def validate(args, trainer, task, epoch_itr, subsets):
     """Evaluate the model on the validation set(s) and return the losses."""
 
@@ -301,6 +312,7 @@ def validate(args, trainer, task, epoch_itr, subsets):
 
     valid_losses = []
     for subset in subsets:
+        print('DBG: ', '% '*40)
         logger.info('begin validation on "{}" subset'.format(subset))
 
         # Initialize data iterator
@@ -321,14 +333,54 @@ def validate(args, trainer, task, epoch_itr, subsets):
 
         # create a new root metrics aggregator so validation metrics
         # don't pollute other aggregators (e.g., train meters)
+        validation_targets_nz = None
+        validation_preds_nz   = None
         with metrics.aggregate(new_root=True) as agg:
-            for sample in progress:
-                trainer.valid_step(sample)
+            for j,sample in enumerate(progress):
+                _, targets_nz,preds_nz  = trainer.valid_step(sample)
+
+                if j==0:
+                    validation_targets_nz = targets_nz
+                    validation_preds_nz  = preds_nz
+                else:
+                    validation_targets_nz =torch.cat( (validation_targets_nz,targets_nz),0)
+                    validation_preds_nz  =torch.cat ((validation_preds_nz , preds_nz),0)
+
+        
+        ################   Nahid added for conf matrix figure  #############################
+        # conf_matrix = confusion_matrix(validation_targets_nz.cpu(), validation_preds_nz.cpu())
+
+        # print('DBG ',validation_targets_nz.cpu(),validation_preds_nz.cpu() )
+        # print(' DBG ' , validation_targets_nz.cpu().shape,validation_preds_nz.cpu().shape )
+
+        # pkl_path = '/home/raisul/stateformer/result/validation_02.pkl'
+        # with open(pkl_path, 'wb') as handle:
+        #     pickle.dump( [validation_targets_nz.cpu(), validation_preds_nz.cpu()], handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+        # with open(pkl_path, 'rb') as handle:
+        #     val_targets ,val_preds = pickle.load(handle)
+
+
+
+        # with open('data-bin/finetune/x86-O0/label/dict.txt') as f:
+        #     lines = f.readlines()
+        # print('DBG ', lines)
+        # exit(0)
+        
+
+
+
+        
+        # conf_per_class = conf_matrix.diagonal()/conf_matrix.sum(axis=1)
+        # #TODO nahid fix -1
+        # average_acc = sum([i for i in conf_per_class  if not math.isnan(i)] )/len(conf_per_class-1)
+        # print('DBG  conf_matrix' ,conf_matrix)
+        # print("DBG conf %" , conf_per_class , '  avg ' ,average_acc)
+        ################################################# NAHID ADDED END
 
         # log validation stats
         stats = get_valid_stats(args, trainer, agg.get_smoothed_values())
         progress.print(stats, tag=subset, step=trainer.get_num_updates())
-
         valid_losses.append(stats[args.best_checkpoint_metric])
     return valid_losses
 

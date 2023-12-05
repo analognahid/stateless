@@ -260,7 +260,6 @@ for file_path in filtered_files:
         elffile = ELFFile(f)
         dwarf = elffile.get_dwarf_info()
 
-        print("DBG :", dwarf)
         # disassemble the byte code with capstone
         code = elffile.get_section_by_name('.text')
         opcodes = code.data()

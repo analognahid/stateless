@@ -433,7 +433,6 @@ class Trainer(object):
         # forward and backward pass
         logging_outputs, sample_size, ooms = [], 0, 0
         for i, sample in enumerate(samples):
-            print('\n DBG # old target shape', sample['target'].shape)
 
             sample = self._prepare_sample(sample)
             if sample is None:
@@ -691,8 +690,7 @@ class Trainer(object):
 
         # log validation stats
         logging_output = self._reduce_and_log_stats(logging_outputs, sample_size)
-
-        return logging_output
+        return logging_output , logging_outputs[0]['non_zero_targets'] , logging_outputs[0]['non_zero_preds']
 
     def zero_grad(self):
         self.optimizer.zero_grad()

@@ -88,15 +88,10 @@ class DataStructureMFCriterion(FairseqCriterion):
 
         logging_output['ntype'] = (targets != 0).sum().item()
         logging_output['ntype_pred'] = (preds != 0).sum().item()
-        
+        logging_output['non_zero_targets'] = non_zero_targets
+        logging_output['non_zero_preds'] = non_zero_preds
         tempmine = (non_zero_targets==non_zero_preds)
 
-        print("DBG their count ",((preds == targets) * (targets != 0)).sum())
-        print('DBG  my count : ' , tempmine.sum())
-        print("DBG total",tempmine.shape )
-        print('accuracy ', tempmine.sum()/len(tempmine))
-
-        # breakpoint()
         return loss, sample_size, logging_output
 
     @staticmethod
@@ -124,7 +119,6 @@ class DataStructureMFCriterion(FairseqCriterion):
             metrics.log_scalar('recall', 100.0 * recall, sample_size, round=1)
             metrics.log_scalar('F1', 100.0 * F1, sample_size, round=1)
             metrics.log_scalar('accuracy', 100.0 * ncorrect_total / sample_size, sample_size, round=1)
-
     @staticmethod
     def logging_outputs_can_be_summed() -> bool:
         """

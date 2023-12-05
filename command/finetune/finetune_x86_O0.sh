@@ -7,12 +7,12 @@ CHECKPOINT_PATH=/home/raisul/stateformer/checkpoints/finetune_x86_O0
 # rm -f $CHECKPOINT_PATH/checkpoint_best.pt
 # cp /home/raisul/stateformer/checkpoints/pretrain/checkpoint_best.pt $CHECKPOINT_PATH/
 
-TOTAL_UPDATES=6000    # Total number of training steps
+TOTAL_UPDATES=50000    # Total number of training steps
 WARMUP_UPDATES=100    # Warmup the learning rate over this many updates
 PEAK_LR=1e-5          # Peak learning rate, adjust as needed
 TOKENS_PER_SAMPLE=512 # Max sequence length
 MAX_POSITIONS=512     # Num. positional embeddings (usually same as above)
-MAX_SENTENCES=24       # Number of sequences per batch (batch size)
+MAX_SENTENCES=75       # Number of sequences per batch (batch size)
 NUM_CLASSES=44
 ENCODER_EMB_DIM=768
 ENCODER_LAYERS=8
